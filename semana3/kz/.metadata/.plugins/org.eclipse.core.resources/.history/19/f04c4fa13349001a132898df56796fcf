@@ -1,0 +1,76 @@
+package co.edu.icesi.fi.ci.junit5exercise.test;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import co.edu.icesi.fi.ci.junit5exercise.model.Order;
+import co.edu.icesi.fi.ci.junit5exercise.service.OrderService;
+
+public class JUnitSpringTests {
+	
+	private OrderService orderService;
+	
+	public JUnitSpringTests(OrderService orderService) {
+		this.orderService = orderService;
+	}
+	
+	@BeforeAll
+	static void setupAll() {
+		System.out.println("se va a iniciar las pruebas");
+	}
+	
+	@BeforeEach
+	void CreateOrders() {
+		Order orden = new Order();
+		orden.setDescription("0");
+		orden.setSecurityCode("0");
+		orden.setOrderDate(new Date(2020, 2, 6));
+		orden.setOrderStatus("0");
+		orden.setOrderId(0);
+		orderService.createOrder(orden);
+		assertAll("grupo1", () -> assertNotNull(orderService.getOrder(0)),() -> assertNotNull(orderService.getOrderDescription(0)), () -> assertNotNull(orderService.getOrder(0).getSecurityCode()));
+	}
+	
+	@Test
+	void getOrderDescription() {
+		assertTrue(true);
+		assertTrue(orderService.getOrderDescription(0).startsWith("Description"));
+	}
+	
+	@Test
+	void getOrderStringCode() {
+		assertTrue(orderService.getOrderStringCode(0).startsWith("Account Code:"));
+	}
+	
+	@Test
+	void 
+	
+	@AfterAll
+	static void tearDownAll() {
+		System.out.println("se termino la ejecucion de las pruebas");
+	}
+	
+	public static void setUp() {
+		System.out.println("-----> SETUP <-----");
+	}
+
+	public void testSampleServiceGetAccountDescription() {
+		// Check if the return description has a 'Description:' string.
+	}
+
+	public void testSampleServiceGetAccountCode() {
+		// Check if the return description has a 'Code:' string.
+	}
+
+	public static void afterTest() {
+		System.out.println("-----> DESTROY <-----");
+	}
+}

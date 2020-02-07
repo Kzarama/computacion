@@ -1,0 +1,21 @@
+package co.edu.icesi.fi.ci.junit5exercise.model;
+
+import java.util.Date;
+
+import lombok.Data;
+import lombok.NonNull;
+
+@Data
+public class Order {
+	@NonNull
+	public int orderId;
+	@NonNull
+	public String orderStatus;
+	@NonNull
+	public String securityCode;
+	@NonNull
+	public String description;
+	@NonNull
+	public Date orderDate;
+	
+}

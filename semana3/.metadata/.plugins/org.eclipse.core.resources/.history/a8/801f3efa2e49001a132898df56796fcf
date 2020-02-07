@@ -1,0 +1,49 @@
+package co.edu.icesi.fi.ci.junit5exercise.test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import co.edu.icesi.fi.ci.junit5exercise.service.OrderService;
+
+public class JUnitSpringTests {
+	
+//	private OrderService orderService;
+//	
+//	public JUnitSpringTests(OrderService orderService) {
+//		this.orderService = orderService;
+//	}
+	
+	@BeforeAll
+	static void setupAll() {
+		System.out.println("se va a iniciar las pruebas");
+	}
+	
+	@Test
+	void test1() {
+		assertTrue(true)://orderService.getOrderDescription(0).startsWith("Description"));
+	}
+	
+	@AfterAll
+	static void tearDownAll() {
+		System.out.println("se termino la ejecucion de las pruebas");
+	}
+	
+	public static void setUp() {
+		System.out.println("-----> SETUP <-----");
+	}
+
+	public void testSampleServiceGetAccountDescription() {
+		// Check if the return description has a 'Description:' string.
+	}
+
+	public void testSampleServiceGetAccountCode() {
+		// Check if the return description has a 'Code:' string.
+	}
+
+	public static void afterTest() {
+		System.out.println("-----> DESTROY <-----");
+	}
+}

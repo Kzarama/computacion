@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.packet.springboot.blogmania.BlogEntry"/>
+<fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
+<fullyQualifiedTypeName name="com.packet.springboot.blogmania.BlogmaniaApplication"/>
+<fullyQualifiedTypeName name="lombok.var"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="lombok.Data"/>
+<fullyQualifiedTypeName name="com.packet.springboot.blogmania.BeanData"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.SpringBootApplication"/>
+<fullyQualifiedTypeName name="co.edu.icesi.ci.injectionexample1.repositories.StudentRepositoryImp"/>
+<fullyQualifiedTypeName name="co.edu.icesi.ci.injectionexample1.model.Student"/>
+<fullyQualifiedTypeName name="co.edu.icesi.ci.injectionexample1.model.Course"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="com.example.demo.PostProcesadorBean"/>
+<fullyQualifiedTypeName name="org.springframework.context.ConfigurableApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+<fullyQualifiedTypeName name="com.example.demo.Semana2Application"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.config.BeanPostProcessor"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Lazy"/>
+<fullyQualifiedTypeName name="org.springframework.context.Lifecycle"/>
+<fullyQualifiedTypeName name="com.example.demo.MyBeanY"/>
+<fullyQualifiedTypeName name="lombok.extern.java.Log"/>
+<fullyQualifiedTypeName name="co.edu.icesi.fi.ci.junit5exercise.main.AppConfig"/>
+<fullyQualifiedTypeName name="co.edu.icesi.fi.ci.junit5exercise.test.JUnitSpringTests"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeAll"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.AfterAll"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.Disabled"/>
+<fullyQualifiedTypeName name="co.edu.icesi.fi.ci.junit5exercise.service.OrderService"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+<fullyQualifiedTypeName name="co.edu.icesi.fi.ci.junit5exercise.model.Order"/>
+<fullyQualifiedTypeName name="lombok.NonNull"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+</qualifiedTypeNameHistroy>

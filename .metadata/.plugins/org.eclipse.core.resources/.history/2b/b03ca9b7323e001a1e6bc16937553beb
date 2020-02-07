@@ -1,0 +1,11 @@
+package com.packet.springboot.blogmania;
+
+import lombok.Data;
+
+@Data
+public class BeanData {
+	
+	private String nombre;
+	private String canonicalName;
+	
+}

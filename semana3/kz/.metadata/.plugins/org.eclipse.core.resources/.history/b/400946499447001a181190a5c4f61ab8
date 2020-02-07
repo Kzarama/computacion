@@ -1,0 +1,9 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+public class MyBeanY implements BeanPostProcessor {
+	
+	
+	
+}
