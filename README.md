@@ -1,2 +1,2 @@
 # Computacion
-projects maked in the class of computing
+projects made in the class of computing
