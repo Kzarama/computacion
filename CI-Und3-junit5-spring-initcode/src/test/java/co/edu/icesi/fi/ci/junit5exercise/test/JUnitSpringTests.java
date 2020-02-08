@@ -1,8 +1,9 @@
 package co.edu.icesi.fi.ci.junit5exercise.test;
 
 public class JUnitSpringTests {
-
-
+	
+	
+	
 	public static void setUp() {
 		System.out.println("-----> SETUP <-----");
 	}
