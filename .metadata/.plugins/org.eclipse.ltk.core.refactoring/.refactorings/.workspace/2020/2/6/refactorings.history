@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete 7 resources" deleteContents="false" description="Delete 7 resources" element1="/junit5-jupiter-starter-maven" element2="/junit5-jupiter-starter-maven-kotlin" element3="/junit5-migration-maven" element4="/no-injection" element5="/no-injection2" element6="/semana2" element7="/semana3" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="7" stamp="1581096499915"/>&#x0A;<refactoring comment="Delete resource &apos;blogmania&apos;" deleteContents="false" description="Delete resource &apos;blogmania&apos;" element1="/blogmania" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1581096507554"/>
-</session>
