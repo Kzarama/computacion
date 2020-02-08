@@ -1,15 +1,22 @@
 package co.edu.icesi.ci.injectionexample1.boot;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
+import co.edu.icesi.ci.injectionexample1.repositories.CourseRepositoryImp;
+import co.edu.icesi.ci.injectionexample1.repositories.RegistrationRepositoryImp;
+import co.edu.icesi.ci.injectionexample1.repositories.StudentRepositoryImp;
 import co.edu.icesi.ci.injectionexample1.service.RegistrationService;
 import co.edu.icesi.ci.injectionexample1.service.RegistrationServiceImp;
 
 @SpringBootApplication
+@ComponentScan("co.edu.icesi.ci.injectionexample1")
 public class NoInjectionApplication {
 	
-	private static RegistrationService registration = new RegistrationServiceImp();
+	private static RegistrationService registration;
 
 	public static void main(String[] args) {
 		
@@ -17,6 +24,13 @@ public class NoInjectionApplication {
 		
 		registration.enrolStudent("11","101",192);
 		
+	}
+	
+	@Bean
+	public CommandLineRunner dummy( RegistrationRepositoryImp registrationRepository, StudentRepositoryImp studentRepository, CourseRepositoryImp courseRepository) {
+		return (args) -> {
+			 registration = new RegistrationServiceImp(studentRepository, courseRepository, registrationRepository);
+		};
 	}
 
 }

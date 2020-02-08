@@ -20,9 +20,6 @@ public class RegistrationServiceImp implements RegistrationService{
 	private StudentRepository studentRepository = new StudentRepositoryImp();
 	private CourseRepository courseRepository = new CourseRepositoryImp();
 	private RegistrationRepository registrationRepository = new RegistrationRepositoryImp();
-
-	public RegistrationServiceImp() {
-	}
 	
 	public RegistrationServiceImp(StudentRepository studentRepository, CourseRepository courseRepository,
 			RegistrationRepository registrationRepository) {
