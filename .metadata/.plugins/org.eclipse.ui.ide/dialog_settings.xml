@@ -16,8 +16,8 @@
 		<item value="org.eclipse.jgit:5.6.0.201912101111-r"/>
 		<item value="org.eclipse.jst.common.fproj.enablement.jdt:3.12.0.v201906031755"/>
 		<item value="org.eclipse.jst.enterprise_ui.feature:3.16.0.v201910241808"/>
-		<item value="org.eclipse.m2e.feature:1.14.0.20191209-1925"/>
-		<item value="org.eclipse.m2e.logback.feature:1.14.0.20191209-1925"/>
+		<item value="org.eclipse.m2e.feature:1.15.0.20200120-1354"/>
+		<item value="org.eclipse.m2e.logback.feature:1.15.0.20200120-1354"/>
 		<item value="org.eclipse.m2e.wtp.feature:1.4.3.20191209-1849"/>
 		<item value="org.eclipse.m2e.wtp.jaxrs.feature:1.4.3.20191209-1849"/>
 		<item value="org.eclipse.m2e.wtp.jsf.feature:1.4.3.20191209-1849"/>
@@ -46,8 +46,22 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/kz/git/computacion/semana3"/>
 			<item value="/home/computacion20.2/Descargas/no-injection"/>
 			<item value="/home/computacion20.2/Descargas/blogmania"/>
+		</list>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/kz/git/computacion/semana3"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
 		</list>
 	</section>
 </section>
