@@ -1,10 +1,14 @@
 package com.repaso.Parcial.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import com.repaso.Parcial.model.Person;
 import com.repaso.Parcial.repositories.PersonRepository;
 
+@Lazy
+@Service
 public class PersonServiceImp implements PersonService {
 	
 	@Autowired

@@ -29,6 +29,7 @@ public class NoInjectionApplication {
 	@Bean
 	public CommandLineRunner dummy( RegistrationRepositoryImp registrationRepository, StudentRepositoryImp studentRepository, CourseRepositoryImp courseRepository) {
 		return (args) -> {
+			System.out.println("hola");
 			 registration = new RegistrationServiceImp(studentRepository, courseRepository, registrationRepository);
 		};
 	}
