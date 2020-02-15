@@ -2,8 +2,11 @@ package com.repaso.Parcial.repositories;
 
 import java.util.HashMap;
 
+import org.springframework.stereotype.Repository;
+
 import com.repaso.Parcial.model.Person;
 
+@Repository
 public class PersonRepositoryImp implements PersonRepository {
 	
 	HashMap<String, Person> personHash;
