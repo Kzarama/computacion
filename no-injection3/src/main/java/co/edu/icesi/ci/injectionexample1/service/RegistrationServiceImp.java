@@ -1,7 +1,5 @@
 package co.edu.icesi.ci.injectionexample1.service;
 
-import org.springframework.stereotype.Service;
-
 import co.edu.icesi.ci.injectionexample1.model.Course;
 import co.edu.icesi.ci.injectionexample1.model.Registration;
 import co.edu.icesi.ci.injectionexample1.model.Student;
@@ -13,7 +11,6 @@ import co.edu.icesi.ci.injectionexample1.repositories.StudentRepository;
 import co.edu.icesi.ci.injectionexample1.repositories.StudentRepositoryImp;
 import lombok.extern.log4j.Log4j2;
 
-@Service
 @Log4j2
 public class RegistrationServiceImp implements RegistrationService{
 

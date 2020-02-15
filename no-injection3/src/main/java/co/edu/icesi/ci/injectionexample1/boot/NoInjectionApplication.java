@@ -13,23 +13,18 @@ import co.edu.icesi.ci.injectionexample1.service.RegistrationService;
 import co.edu.icesi.ci.injectionexample1.service.RegistrationServiceImp;
 
 @SpringBootApplication
-@ComponentScan("co.edu.icesi.ci.injectionexample1")
 public class NoInjectionApplication {
 	
 	private static RegistrationService registration;
 
 	public static void main(String[] args) {
-		
 		SpringApplication.run(NoInjectionApplication.class, args);
-		
 		registration.enrolStudent("11","101",192);
-		
 	}
 	
 	@Bean
-	public CommandLineRunner dummy( RegistrationRepositoryImp registrationRepository, StudentRepositoryImp studentRepository, CourseRepositoryImp courseRepository) {
+	public CommandLineRunner dummy(RegistrationRepositoryImp registrationRepository, StudentRepositoryImp studentRepository, CourseRepositoryImp courseRepository) {
 		return (args) -> {
-			System.out.println("hola");
 			 registration = new RegistrationServiceImp(studentRepository, courseRepository, registrationRepository);
 		};
 	}
