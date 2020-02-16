@@ -11,28 +11,24 @@ import co.edu.icesi.ci.injectionexample1.service.RegistrationServiceImp;
 @Configuration
 public class AppConfig {
 	
-	CourseRepositoryImp courseRepository = new CourseRepositoryImp();
-	RegistrationRepositoryImp registrationRepository = new RegistrationRepositoryImp();
-	StudentRepositoryImp studentRepository = new StudentRepositoryImp();
-	
 	@Bean
 	public CourseRepositoryImp courseRepository() {
-		return courseRepository;
+		return new CourseRepositoryImp();
 	}
 	
 	@Bean
 	public RegistrationRepositoryImp registrationRepository() {
-		return registrationRepository;
+		return new RegistrationRepositoryImp();
 	}
 	
 	@Bean
 	public StudentRepositoryImp studentRepository() {
-		return studentRepository;
+		return new StudentRepositoryImp();
 	}
 	
 	@Bean
 	public RegistrationServiceImp registrationService() {
-		return new RegistrationServiceImp(studentRepository, courseRepository, registrationRepository);
+		return new RegistrationServiceImp(studentRepository(), courseRepository(), registrationRepository());
 	}
 	
 }

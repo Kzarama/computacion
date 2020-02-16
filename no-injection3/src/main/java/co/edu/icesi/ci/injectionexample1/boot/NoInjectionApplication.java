@@ -4,7 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 import co.edu.icesi.ci.injectionexample1.repositories.CourseRepositoryImp;
 import co.edu.icesi.ci.injectionexample1.repositories.RegistrationRepositoryImp;
