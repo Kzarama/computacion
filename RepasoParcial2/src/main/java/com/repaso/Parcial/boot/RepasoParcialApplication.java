@@ -15,8 +15,8 @@ import lombok.extern.java.Log;
 public class RepasoParcialApplication {
 	
 	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx = SpringApplication.run(RepasoParcialApplication.class, args);
-		PersonServiceImp personService = ctx.getBean(PersonServiceImp.class);
+		ConfigurableApplicationContext cac = SpringApplication.run(RepasoParcialApplication.class, args);
+		PersonServiceImp personService = cac.getBean(PersonServiceImp.class);
 		personService.savePerson("Cristiano", "Ronaldo");
 		personService.savePerson("Lionel", "Messi");
 		log.info(personService.queryPerson("Ronaldo") + "");
