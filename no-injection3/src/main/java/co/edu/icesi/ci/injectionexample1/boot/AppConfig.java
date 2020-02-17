@@ -27,8 +27,8 @@ public class AppConfig {
 	}
 	
 	@Bean
-	public RegistrationServiceImp registrationService() {
-		return new RegistrationServiceImp(studentRepository(), courseRepository(), registrationRepository());
+	public RegistrationServiceImp registrationService(StudentRepositoryImp studentRepository, CourseRepositoryImp courseRepository, RegistrationRepositoryImp registrationRepository) {
+		return new RegistrationServiceImp(studentRepository, courseRepository, registrationRepository);
 	}
 	
 }
