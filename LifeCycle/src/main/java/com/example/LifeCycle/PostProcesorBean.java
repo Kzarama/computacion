@@ -12,7 +12,8 @@ public class PostProcesorBean implements BeanPostProcessor {
 	
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		if (bean.getClass().getPackage().toString().equals("package com.example.LifeCycle")) {
+		if (bean.getClass().getCanonicalName().startsWith("com.example.LifeCycle")) {
+//		if (bean.getClass().getPackage().toString().equals("package com.example.LifeCycle")) {
 			log.info("My bean: " + beanName);
 		}
 		return bean;
@@ -20,7 +21,8 @@ public class PostProcesorBean implements BeanPostProcessor {
 	
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		if (!(bean.getClass().getPackage().toString().equals("package com.example.LifeCycle"))) {
+		if (!(bean.getClass().getCanonicalName().startsWith("com.example.LifeCycle"))) {
+//		if (!(bean.getClass().getPackage().toString().equals("package com.example.LifeCycle"))) {
 			log.info("Spring bean: " + beanName);
 		}
 		return bean;
