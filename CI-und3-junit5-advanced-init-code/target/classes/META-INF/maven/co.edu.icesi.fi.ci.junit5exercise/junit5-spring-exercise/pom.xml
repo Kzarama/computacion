@@ -5,12 +5,14 @@
 	<groupId>co.edu.icesi.fi.ci.junit5exercise</groupId>
 	<artifactId>junit5-spring-exercise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
 	<properties>
 		<postgresql.version>42.2.1</postgresql.version>
 		<junit.jupiter.version>5.6.0</junit.jupiter.version>
@@ -23,10 +25,12 @@
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -43,27 +47,33 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -71,17 +81,15 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<properties>
-						<includeTags>no_mutable</includeTags>
-						<excludeTags>mutable</excludeTags>
+						<includeTags>mutable</includeTags>
+						<excludeTags>no_mutable</excludeTags>
 					</properties>
 				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>org.junit.platform</groupId>
 						<artifactId>junit-platform-surefireprovider</artifactId>
-						<version>
-							${junit.platform.version}
-						</version>
+						<version>${junit.platform.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>org.junit.jupiter</groupId>

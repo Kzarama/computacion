@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,7 +39,7 @@ public class JUnitSpringTests {
 	public void createOrder() {
 		Order newOrder = new Order();
 		newOrder.setDescription("Description");
-		newOrder.setOrderDate(LocalDate.now());
+		newOrder.setOrderDate(LocalDate.of(2000, 1, 1));
 		newOrder.setOrderId(1);
 		newOrder.setOrderStatus("0");
 		newOrder.setSecurityCode("XYZ");
@@ -46,9 +47,11 @@ public class JUnitSpringTests {
 	}
 	
 	@Nested
+	@DisplayName("Pruebas de creacion")
 	class PruebasCreacion {
 		
 		@Test
+		@Tag("mutable")
 		@DisplayName("Test create new order")
 		public void testSampleServiceCreateNewOrder() {
 			Order newOrder = new Order();
@@ -62,12 +65,51 @@ public class JUnitSpringTests {
 			}
 			assertNotNull(newOrder, "New Order is not null");
 		}
+		
+		@Test
+		@Tag("mutable")
+		public void updateOrder1() {
+			assertEquals("Description", orderService.getOrderDescription(1));
+			Order order = orderService.getOrder(1);
+			order.setDescription("New description");
+			orderService.updateOrder(order);
+			assertEquals("New description", orderService.getOrderDescription(1));
+		}
+		
+		@Test
+		@Tag("mutable")
+		public void updateOrder2() {
+			assertEquals("0", orderService.getOrderStatus(1));
+			Order order = orderService.getOrder(1);
+			order.setOrderStatus("1");
+			orderService.updateOrder(order);
+			assertEquals("1", orderService.getOrderStatus(1));
+		}
+		
+		@Test
+		@Tag("mutable")
+		public void updateOrder3() {
+			assertEquals(LocalDate.of(2000, 1, 1), orderService.getOrderDate(1));
+			Order order = orderService.getOrder(1);
+			order.setOrderDate(LocalDate.of(2020, 1, 1));
+			orderService.updateOrder(order);
+			assertEquals(LocalDate.of(2020, 1, 1), orderService.getOrderDate(1));
+		}
+		
+		@Test
+		@Tag("mutable")
+		public void deleteOrder() {
+			assertEquals("Description", orderService.getOrderDescription(1));
+		}
+		
 	}
 	
-	@org.junit.jupiter.api.Nested
+	@Nested
+	@DisplayName("Pruebas de consulta")
 	class PruebasConsulta {
 		
 		@Test
+		@Tag("no_mutable")
 		@DisplayName("Get account description")
 		public void testSampleServiceGetAccountDescription() {
 			// Check if the return description has a 'Description:' string.
@@ -75,6 +117,7 @@ public class JUnitSpringTests {
 		}
 
 		@Test
+		@Tag("no_mutable")
 		@DisplayName("Get account code")
 		public void testSampleServiceGetAccountCode() {
 			// Check if the return description has a 'Code:' string.
@@ -82,6 +125,7 @@ public class JUnitSpringTests {
 		}
 
 		@Test
+		@Tag("no_mutable")
 		@DisplayName("Get order")
 		public void testSampleServiceGetOrder() {
 			Order existingOrder = orderService.getOrder(1);
@@ -91,6 +135,24 @@ public class JUnitSpringTests {
 				assertNotNull("Description isn't null", existingOrder.getDescription());
 			}
 			assertNotNull(existingOrder, "Object is not null");
+		}
+		
+		@Test
+		@Tag("no_mutable")
+		public void getOrderDate() {
+			assertEquals(LocalDate.of(2000, 1, 1), orderService.getOrderDate(1));
+		}
+		
+		@Test
+		@Tag("no_mutable")
+		public void getOrderStatus() {
+			assertEquals("0", orderService.getOrderStatus(1));
+		}
+		
+		@Test
+		@Tag("no_mutable")
+		public void getOrderDescription() {
+			assertEquals("Description", orderService.getOrderDescription(1));
 		}
 		
 	}
