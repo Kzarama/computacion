@@ -22,13 +22,9 @@ import co.edu.icesi.fi.ci.junit5exercise.service.OrderService;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class JUnitSpringTests {
-
-	private OrderService orderService;
-
+	
 	@Autowired
-	public JUnitSpringTests(OrderService orderService) {
-		this.orderService = orderService;
-	}
+	private OrderService orderService;
 
 	@BeforeAll
 	public static void setUp() {
