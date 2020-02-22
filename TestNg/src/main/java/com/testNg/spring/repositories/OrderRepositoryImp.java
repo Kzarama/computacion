@@ -14,7 +14,7 @@ public class OrderRepositoryImp implements OrderRepository {
 	public void saveOrder(Order order) throws ExceptionSaveOrder {
 		if (order == null) {
 			throw new ExceptionSaveOrder("order empty");
-		} else if (orderHash.containsValue(order)) {
+		} else if (orderHash.containsKey(order.getId())) {
 			throw new ExceptionSaveOrder("Order exist already");
 		} else {
 			orderHash.put(order.getId(), order);
@@ -26,7 +26,7 @@ public class OrderRepositoryImp implements OrderRepository {
 		if (order == null) {
 			throw new ExceptionSaveOrder("order empty");
 		} else if (!orderHash.containsValue(order)) {
-			throw new ExceptionOrderNotFound("Order not exist already");
+			throw new ExceptionOrderNotFound("Order not exist");
 		} else {
 			Order existingOrder = orderHash.get(order.getId());
 			existingOrder.setCreador(order.getCreador());
@@ -34,6 +34,16 @@ public class OrderRepositoryImp implements OrderRepository {
 			existingOrder.setDescripcion(order.getDescripcion());
 			orderHash.replace(order.getId(), order);
 		}
+	}
+
+	@Override
+	public Order getOrder(String id) throws ExceptionOrderNotFound {
+		return orderHash.get(id);
+	}
+
+	@Override
+	public void deleteOrder(String id) throws ExceptionOrderNotFound {
+		orderHash.remove(id);
 	}
 	
 }

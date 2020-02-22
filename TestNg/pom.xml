@@ -13,7 +13,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TestNg</name>
 	<description>Demo project for Spring Boot</description>
-
+	
+	<!-- groups of test -->
+	
+	<!--  -->
+	
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -51,13 +55,17 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 		    <groupId>org.testng</groupId>
 		    <artifactId>testng</artifactId>
 		    <version>7.1.0</version>
 		    <scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<build>

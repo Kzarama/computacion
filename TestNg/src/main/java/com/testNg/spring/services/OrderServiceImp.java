@@ -22,4 +22,14 @@ public class OrderServiceImp implements OrderService {
 		orderService.updateOrder(order);
 	}
 
+	@Override
+	public Order getOrder(String id) throws ExceptionOrderNotFound {
+		return orderService.getOrder(id);
+	}
+
+	@Override
+	public void deleteOrder(String id) throws ExceptionOrderNotFound {
+		orderService.deleteOrder(id);
+	}
+
 }
