@@ -9,11 +9,12 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.testng.annotations.Test;
 
 import com.testNg.spring.boot.TestNgApplication;
 import com.testNg.spring.exceptions.ExceptionOrderNotFound;
@@ -21,9 +22,9 @@ import com.testNg.spring.exceptions.ExceptionSaveOrder;
 import com.testNg.spring.model.Order;
 import com.testNg.spring.services.OrderServiceImp;
 
-@RunWith(SpringRunner.class)
 @DisplayName("Test TestNG")
-@SpringBootTest(classes = TestNgApplication.class)
+@Test
+@ContextConfiguration(locations = { "classpath:spring-test-config.xml" })
 public class TestNgApplicationTests {
 	
 	@Autowired
@@ -44,8 +45,8 @@ public class TestNgApplicationTests {
 		orderService.deleteOrder("1");
 	}
 	
-	//@Test(groups = {"create"})
-	@Test
+	@Test(groups = {"create"})
+//	@Test
 	@DisplayName("Save order")
 	void testSaveOrder() throws ExceptionOrderNotFound, ExceptionSaveOrder {
 		Order order = new Order();

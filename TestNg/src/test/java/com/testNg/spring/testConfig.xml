@@ -1,0 +1,13 @@
+<test name="test groups">
+    <groups>
+        <run>
+            <include name="regression" />
+        </run>
+    </groups>
+    <classes>
+        <class
+          name="com.baeldung.SummationServiceTest" />
+    </classes>
+</test>
+java org.testng.TestNG testConfig.xml [testConfig.xml]
+java org.testng.TestNG testng1.xml [testng2.xml testng3.xml ...]
