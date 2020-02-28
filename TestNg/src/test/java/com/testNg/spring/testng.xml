@@ -1,13 +1,14 @@
-<?xml <suite name="Suite World">
-<test name="Test Name">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+<test name="Test">
   <groups>
     <run>
       <include name="grupo1" />
-      <exclude name="grupo2" />
+      <include name="grupo2" />
     </run>
   </groups>
   <classes>
-    <class name="TestDummy"/>
+    <class name="com.testNg.spring.TestDummy"/>
   </classes>
 </test>
-</suite>?>
+</suite>

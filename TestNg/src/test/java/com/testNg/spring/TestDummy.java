@@ -2,9 +2,7 @@ package com.testNg.spring;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.DisplayName;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
 

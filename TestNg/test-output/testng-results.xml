@@ -1,249 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="11" passed="11">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1529" started-at="2020-02-28T10:08:15 COT" finished-at="2020-02-28T10:08:16 COT">
+  <suite name="Suite" duration-ms="1524" started-at="2020-02-28T10:52:26 COT" finished-at="2020-02-28T10:52:27 COT">
     <groups>
       <group name="grupo1">
-        <method signature="TestDummy.dummy1()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy1" class="com.testNg.spring.TestDummy"/>
-        <method signature="TestDummy.dummy2()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy2" class="com.testNg.spring.TestDummy"/>
-        <method signature="TestDummy.dummy5()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy5" class="com.testNg.spring.TestDummy"/>
+        <method signature="TestDummy.dummy1()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy1" class="com.testNg.spring.TestDummy"/>
+        <method signature="TestDummy.dummy2()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy2" class="com.testNg.spring.TestDummy"/>
+        <method signature="TestDummy.dummy5()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy5" class="com.testNg.spring.TestDummy"/>
       </group> <!-- grupo1 -->
       <group name="grupo2">
-        <method signature="TestDummy.dummy3()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy3" class="com.testNg.spring.TestDummy"/>
-        <method signature="TestDummy.dummy4()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy4" class="com.testNg.spring.TestDummy"/>
-        <method signature="TestDummy.dummy5()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy5" class="com.testNg.spring.TestDummy"/>
+        <method signature="TestDummy.dummy3()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy3" class="com.testNg.spring.TestDummy"/>
+        <method signature="TestDummy.dummy4()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy4" class="com.testNg.spring.TestDummy"/>
+        <method signature="TestDummy.dummy5()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy5" class="com.testNg.spring.TestDummy"/>
       </group> <!-- grupo2 -->
     </groups>
-    <test name="Default test" duration-ms="1529" started-at="2020-02-28T10:08:15 COT" finished-at="2020-02-28T10:08:16 COT">
-      <class name="com.testNg.spring.TestNgApplicationTests">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="7" started-at="2020-02-28T10:08:15 COT" finished-at="2020-02-28T10:08:15 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="1444" started-at="2020-02-28T10:08:15 COT" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testCreateOrderExceptionOrderNull() throws com.testNg.spring.exceptions.ExceptionSaveOrder]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="createOrderBefore()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="createOrderBefore" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrderBefore -->
-        <test-method status="PASS" signature="testCreateOrderExceptionOrderNull()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="testCreateOrderExceptionOrderNull" duration-ms="7" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCreateOrderExceptionOrderNull -->
-        <test-method status="PASS" signature="deleteOrderAfter()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="deleteOrderAfter" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrderAfter -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testCreateOrderExceptionOrderNull() throws com.testNg.spring.exceptions.ExceptionSaveOrder]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="createOrderBefore()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="createOrderBefore" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrderBefore -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testCreateOrderExceptionOrderSave() throws com.testNg.spring.exceptions.ExceptionSaveOrder,com.testNg.spring.exceptions.ExceptionOrderNotFound]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="testCreateOrderExceptionOrderSave()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="testCreateOrderExceptionOrderSave" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCreateOrderExceptionOrderSave -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testCreateOrderExceptionOrderSave() throws com.testNg.spring.exceptions.ExceptionSaveOrder,com.testNg.spring.exceptions.ExceptionOrderNotFound]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="deleteOrderAfter()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="deleteOrderAfter" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrderAfter -->
-        <test-method status="PASS" signature="testSaveOrder()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="testSaveOrder" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testSaveOrder -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testSaveOrder() throws com.testNg.spring.exceptions.ExceptionOrderNotFound,com.testNg.spring.exceptions.ExceptionSaveOrder]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="createOrderBefore()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="createOrderBefore" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrderBefore -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testSaveOrder() throws com.testNg.spring.exceptions.ExceptionOrderNotFound,com.testNg.spring.exceptions.ExceptionSaveOrder]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="deleteOrderAfter()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="deleteOrderAfter" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrderAfter -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testUpdateOrder() throws com.testNg.spring.exceptions.ExceptionOrderNotFound,com.testNg.spring.exceptions.ExceptionSaveOrder]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="testUpdateOrder()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="testUpdateOrder" duration-ms="4" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testUpdateOrder -->
-        <test-method status="PASS" signature="createOrderBefore()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="createOrderBefore" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrderBefore -->
-        <test-method status="PASS" signature="deleteOrderAfter()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="deleteOrderAfter" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrderAfter -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testUpdateOrderExceptionOrderNotExists()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testUpdateOrder() throws com.testNg.spring.exceptions.ExceptionOrderNotFound,com.testNg.spring.exceptions.ExceptionSaveOrder]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="createOrderBefore()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="createOrderBefore" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrderBefore -->
-        <test-method status="PASS" signature="testUpdateOrderExceptionOrderNotExists()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="testUpdateOrderExceptionOrderNotExists" duration-ms="4" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testUpdateOrderExceptionOrderNotExists -->
-        <test-method status="PASS" signature="deleteOrderAfter()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="deleteOrderAfter" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrderAfter -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testUpdateOrderExceptionOrderNotExists()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="testUpdateOrderExceptionOrderNull()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="testUpdateOrderExceptionOrderNull" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testUpdateOrderExceptionOrderNull -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testUpdateOrderExceptionOrderNull()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="createOrderBefore()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="createOrderBefore" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrderBefore -->
-        <test-method status="PASS" signature="deleteOrderAfter()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="deleteOrderAfter" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrderAfter -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestNgApplicationTests.testUpdateOrderExceptionOrderNull()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.testNg.spring.TestNgApplicationTests@59af0466]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestClass -->
-      </class> <!-- com.testNg.spring.TestNgApplicationTests -->
+    <test name="Test" duration-ms="1524" started-at="2020-02-28T10:52:26 COT" finished-at="2020-02-28T10:52:27 COT">
       <class name="com.testNg.spring.TestDummy">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="17" started-at="2020-02-28T10:52:26 COT" finished-at="2020-02-28T10:52:26 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="3" started-at="2020-02-28T10:08:16 COT" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="1468" started-at="2020-02-28T10:52:26 COT" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2020-02-28T10:52:27 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -254,11 +36,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="dummy1()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy1" duration-ms="2" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="dummy1()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy1" duration-ms="5" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dummy1 -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -269,7 +51,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -280,11 +62,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="dummy2()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy2" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="dummy2()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy2" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dummy2 -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -295,11 +77,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="dummy3()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy3" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="dummy3()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy3" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dummy3 -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -310,7 +92,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -321,33 +103,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="dummy4()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy4" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[void com.testNg.spring.TestDummy.dummy4()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="dummy4()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy4" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dummy4 -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestDummy.dummy4()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[void com.testNg.spring.TestDummy.dummy4()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -358,15 +129,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="dummy5()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="dummy5" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[void com.testNg.spring.TestDummy.dummy4()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="dummy5()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="dummy5" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dummy5 -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextAfterTestClass -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@3e6ef8ad]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:08:16 COT" finished-at="2020-02-28T10:08:16 COT">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
           <params>
             <param index="0">
               <value>
@@ -377,7 +155,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.testNg.spring.TestDummy@77eca502]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2020-02-28T10:52:27 COT" finished-at="2020-02-28T10:52:27 COT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
       </class> <!-- com.testNg.spring.TestDummy -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

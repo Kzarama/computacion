@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +18,6 @@ import com.testNg.spring.boot.TestNgApplication;
 import com.testNg.spring.exceptions.ExceptionOrderNotFound;
 import com.testNg.spring.exceptions.ExceptionSaveOrder;
 import com.testNg.spring.model.Order;
-import com.testNg.spring.services.OrderService;
 import com.testNg.spring.services.OrderServiceImp;
 
 @SpringBootTest (classes = TestNgApplication.class)
