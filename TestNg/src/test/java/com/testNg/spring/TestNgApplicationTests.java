@@ -45,8 +45,7 @@ public class TestNgApplicationTests {
 		orderService.deleteOrder("1");
 	}
 	
-	@Test(groups = {"create"})
-//	@Test
+	@Test
 	@DisplayName("Save order")
 	void testSaveOrder() throws ExceptionOrderNotFound, ExceptionSaveOrder {
 		Order order = new Order();
