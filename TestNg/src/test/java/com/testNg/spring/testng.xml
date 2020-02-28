@@ -1,0 +1,13 @@
+<?xml <suite name="Suite World">
+<test name="Test Name">
+  <groups>
+    <run>
+      <include name="grupo1" />
+      <exclude name="grupo2" />
+    </run>
+  </groups>
+  <classes>
+    <class name="TestDummy"/>
+  </classes>
+</test>
+</suite>?>
