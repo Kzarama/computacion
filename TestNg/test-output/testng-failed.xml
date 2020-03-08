@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.testNg.spring.TestNgApplicationTests">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="testUpdateOrderExceptionOrderNull"/>
+          <include name="createOrderBefore"/>
+          <include name="testUpdateOrder"/>
+          <include name="testUpdateOrderExceptionOrderNotExists"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="testSaveOrder"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testCreateOrderExceptionOrderSave"/>
+        </methods>
+      </class> <!-- com.testNg.spring.TestNgApplicationTests -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -6,14 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.testNg.spring.boot.TestNgApplication;
@@ -22,15 +20,13 @@ import com.testNg.spring.exceptions.ExceptionSaveOrder;
 import com.testNg.spring.model.Order;
 import com.testNg.spring.services.OrderServiceImp;
 
-@DisplayName("Test TestNG")
-@Test
-@ContextConfiguration(locations = { "classpath:spring-test-config.xml" })
-public class TestNgApplicationTests {
+@SpringBootTest (classes = TestNgApplication.class)
+public class TestNgApplicationTests extends AbstractTestNGSpringContextTests {
 	
 	@Autowired
 	private OrderServiceImp orderService;
 	
-	@BeforeEach
+	@BeforeMethod
 	void createOrderBefore() throws ExceptionSaveOrder {
 		Order order = new Order();
 		order.setCreador("k");
@@ -40,7 +36,7 @@ public class TestNgApplicationTests {
 		orderService.saveOrder(order);
 	}
 	
-	@AfterEach
+	@AfterMethod
 	void deleteOrderAfter() throws ExceptionOrderNotFound {
 		orderService.deleteOrder("1");
 	}
@@ -79,15 +75,15 @@ public class TestNgApplicationTests {
 	
 	@Test
 	@DisplayName("Create order exception exists already")
-	void testCreateOrderExceptionOrderSave() throws ExceptionSaveOrder {
+	void testCreateOrderExceptionOrderSave() throws ExceptionSaveOrder, ExceptionOrderNotFound {
 		Order order = new Order();
 		order.setCreador("k");
 		order.setDescripcion("Description");
 		order.setFechaCreacion(LocalDate.of(2000, 1, 1));
 		order.setId("1");
 		assertThrows(ExceptionSaveOrder.class,
-				() -> {orderService.saveOrder(order);},
-				"Order exist already");
+				() -> {orderService.saveOrder(order);
+				});
 	}
 	
 	@Test
@@ -95,8 +91,8 @@ public class TestNgApplicationTests {
 	void testCreateOrderExceptionOrderNull() throws ExceptionSaveOrder {
 		Order order = null;
 		assertThrows(ExceptionSaveOrder.class,
-				() -> {orderService.saveOrder(order);},
-				"Order empty");
+				() -> {orderService.saveOrder(order);
+				});
 	}
 	
 	@Test
