@@ -27,6 +27,7 @@ public class User {
 	
 	private UserType type;
 	
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDate birthDate;
 	
 	private UserGender gender;
