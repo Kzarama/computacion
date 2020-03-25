@@ -1,14 +1,9 @@
 package co.edu.icesi.ci.mvctutorial.controller;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import co.edu.icesi.ci.mvctutorial.model.User;
 import co.edu.icesi.ci.mvctutorial.service.UserService;
@@ -22,13 +17,18 @@ public class UserController {
 		this.userService = userService;
 	}
 	
+	@GetMapping("/users/edit/")
+	public String editUser(Model model, User user) {
+		return "/users/edit";
+	}
+	
 	@GetMapping("/users/")
 	public String listUser(Model model) {
 		model.addAttribute("users", userService.findAll());
 		return "users/index";
 	}
 	
-	@GetMapping("/add/")
+	@GetMapping("/users/add/")
 	public String addUser(Model model) {
 		model.addAttribute("gender", userService.getGenders());
 		model.addAttribute("type", userService.getTypes());
@@ -41,22 +41,9 @@ public class UserController {
 		return "users";
 	}
 	
+	@GetMapping("/users/del/")
+	public String delUSers() {
+		return "users/add";
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-/*
- * planeacion
- * transporte
- * almacenamiento
- * compras
- * conversion
- * */
