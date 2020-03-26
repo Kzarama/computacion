@@ -22,17 +22,17 @@ import lombok.Data;
 @Entity
 @Data
 public class Appointment {
-
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long id;
 	
-	@FutureOrPresent
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate date;
+	@FutureOrPresent
+	private LocalDate date; 
 	
-	@NotNull
 	@DateTimeFormat(iso = ISO.TIME)
+	@NotNull
 	private LocalTime time;
 	
 	@ManyToOne
@@ -42,5 +42,4 @@ public class Appointment {
 	@ManyToOne
 	@NotNull
 	private User doctor;
-	
 }

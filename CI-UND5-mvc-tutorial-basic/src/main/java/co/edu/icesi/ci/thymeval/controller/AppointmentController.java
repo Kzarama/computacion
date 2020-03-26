@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import co.edu.icesi.ci.thymeval.model.Appointment;
+import co.edu.icesi.ci.thymeval.model.User;
 import co.edu.icesi.ci.thymeval.service.AppointmentService;
 import co.edu.icesi.ci.thymeval.service.AppointmentServiceInt;
 import co.edu.icesi.ci.thymeval.service.UserService;
@@ -29,6 +30,7 @@ public class AppointmentController {
 	public AppointmentController(AppointmentServiceInt appointmentService, UserServiceInt userService) {
 		this.userService = userService;
 		this.appointmentService = appointmentService;
+		;
 	}
 
 	@GetMapping("/apps/")
@@ -48,9 +50,10 @@ public class AppointmentController {
 
 	@PostMapping("/apps/add")
 	public String saveApp(@RequestParam(value = "action", required = true) String action, @Validated Appointment app, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
+		if(bindingResult.hasErrors()) {
 			return "apps/add-app";
 		}
+		
 		if (!action.equals("Cancel"))
 			appointmentService.save(app);
 		return "redirect:/apps/";
@@ -69,10 +72,13 @@ public class AppointmentController {
 	}
 
 	@PostMapping("/apps/edit/{id}")
-	public String updateApp(@PathVariable("id") long id, @RequestParam(value = "action", required = true) String action, @Validated Appointment app, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-			return "apps/add-app";
+	public String updateApp(@PathVariable("id") long id, @RequestParam(value = "action", required = true) String action,
+			@Validated Appointment app, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			return "users/update-user";
 		}
+		
 		if (!action.equals("Cancel")) {
 			appointmentService.save(app);
 		}
