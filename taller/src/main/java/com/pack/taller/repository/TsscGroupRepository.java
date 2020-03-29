@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.pack.taller.model.TsscGroup;
 
-public interface GroupRepository extends CrudRepository<TsscGroup, Long>{
+public interface TsscGroupRepository extends CrudRepository<TsscGroup, Long>{
 
 }

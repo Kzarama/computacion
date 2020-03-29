@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.pack.taller.model.TsscGame;
 
-public interface GamesRepository extends CrudRepository<TsscGame, Long>{
+public interface TsscGamesRepository extends CrudRepository<TsscGame, Long>{
 
 }
