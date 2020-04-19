@@ -90,14 +90,12 @@ public class TsscAdmin implements Serializable {
 	public TsscGameAdmin addTsscGameAdmin(TsscGameAdmin tsscGameAdmin) {
 		getTsscGameAdmins().add(tsscGameAdmin);
 		tsscGameAdmin.setTsscAdmin(this);
-
 		return tsscGameAdmin;
 	}
 
 	public TsscGameAdmin removeTsscGameAdmin(TsscGameAdmin tsscGameAdmin) {
 		getTsscGameAdmins().remove(tsscGameAdmin);
 		tsscGameAdmin.setTsscAdmin(null);
-
 		return tsscGameAdmin;
 	}
 

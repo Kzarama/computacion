@@ -22,11 +22,9 @@ public class UserService implements UserServiceInt{
 
 	public void save(UserApp user) {
 		userRepository.save(user);
-
 	}
 
 	public Optional<UserApp> findById(long id) {
-
 		return userRepository.findById(id);
 	}
 
@@ -42,19 +40,15 @@ public class UserService implements UserServiceInt{
 		return userRepository.findByType(UserType.doctor);
 	}
 
-
 	public void delete(UserApp user) {
 		userRepository.delete(user);
-
 	}
 
 	public UserGender[] getGenders() {
-		
 		return UserGender.values();
 	}
 
 	public UserType[] getTypes() {
-		// TODO Auto-generated method stub
 		return UserType.values();
 	}
 }

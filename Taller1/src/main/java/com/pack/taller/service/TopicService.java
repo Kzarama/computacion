@@ -9,5 +9,8 @@ public interface TopicService {
 	
 	public boolean saveTopic(TsscTopic topic) throws Exception;
 	public boolean editTopic(TsscTopic topic, Long id) throws Exception;
+	public TsscTopic findById(Long id);
+	public Iterable<TsscTopic> findAll();
+	public void deleteTopic(Long id);
 	
 }

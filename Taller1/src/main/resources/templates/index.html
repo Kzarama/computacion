@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Users</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="../css/shards.min.css">
+</head>
+<body>
+	<div class="container my-5">
+		<div>
+			<h1>Simulacion scrum - universidad ICESI</h1>
+
+			<p>
+				<a href="/game/"><i class="fas fa-dice"></i> Gestion de juegos</a>
+			</p>
+			<div sec:authorize="hasAnyRole('superadmin')">
+			<p>
+				<a href="/topic/"><i class="fas fa-archway"></i> Gestion de temas</a>
+			</p>
+			</div>
+			<p>
+				<a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesion</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

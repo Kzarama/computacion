@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.hasRole("ADMIN").anyRequest().permitAll().and().httpBasic().and().logout().invalidateHttpSession(true)
 				.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.logoutSuccessUrl("/login?logout").permitAll().and().exceptionHandling()
-				.accessDeniedHandler(accessDeniedHandler).and().formLogin().loginPage("/login");
+				.accessDeniedHandler(accessDeniedHandler);
 	}
 
 }

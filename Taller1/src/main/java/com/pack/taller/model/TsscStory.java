@@ -2,6 +2,7 @@ package com.pack.taller.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,6 +17,8 @@ import java.util.List;
 public class TsscStory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	public interface ValidatedStory{};
+	
 	@Id
 	@SequenceGenerator(name = "TSSC_STORY_ID_GENERATOR", allocationSize = 1, sequenceName = "TSSC_STORY_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TSSC_STORY_ID_GENERATOR")
@@ -30,6 +33,7 @@ public class TsscStory implements Serializable {
 	@Column(name = "BUSINESS_VALUE")
 	private BigDecimal businessValue;
 
+	@NotBlank(groups = ValidatedStory.class)
 	private String description;
 
 	@Column(name = "INITIAL_SPRINT")
