@@ -1,5 +1,7 @@
 package com.pack.taller.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class GameServiceImp implements GameService {
 	
 	@Autowired
 	private TopicRepository topicRepo;
+	
+	@Autowired
+	private TopicServiceImp topicService;
 	
 	@Override
 	public boolean saveGame(TsscGame game) throws Exception {
@@ -57,6 +62,21 @@ public class GameServiceImp implements GameService {
 		} else {
 			throw new Exception();
 		}
+	}
+
+	@Override
+	public Iterable<TsscGame> findAll() {
+		return repo.findAll();
+	}
+
+	@Override
+	public TsscGame findById(Long id) {
+		return repo.findById(id).get();
+	}
+
+	@Override
+	public void deleteGame(Long id) {
+		repo.deleteById(id);
 	}
 	
 }

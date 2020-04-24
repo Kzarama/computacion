@@ -45,20 +45,5 @@ public class StoryServiceImp implements StoryService {
 			throw new Exception();
 		}
 	}
-
-	@Override
-	public TsscStory findById(Long id) {
-		return repo.findById(id).get();
-	}
-
-	@Override
-	public void deleteStory(Long id) {
-		repo.deleteById(id);
-	}
-
-	@Override
-	public Iterable<TsscStory> findAll() {
-		return repo.findAll();
-	}
 	
 }

@@ -32,20 +32,5 @@ public class TopicServiceImp implements TopicService {
 			 throw new Exception();
 		}
 	}
-
-	@Override
-	public Iterable<TsscTopic> findAll() {
-		return repo.findAll();
-	}
-
-	@Override
-	public TsscTopic findById(Long id) {
-		return repo.findById(id).get();
-	}
-
-	@Override
-	public void deleteTopic(Long id) {
-		repo.deleteById(id);;
-	}
 	
 }

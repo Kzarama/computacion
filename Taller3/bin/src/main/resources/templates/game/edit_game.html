@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Editar juego</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="../css/shards.min.css">
+</head>
+<body>
+	<div class="container my-5">
+		<h1>Editar juego</h1>
+		<div class="col-md-6">
+			<form action="#" th:action="@{/game/edit/{id}(id=${game.id})}" th:object="${game}" method="post">
+				<div>
+					<div>
+						<label for="name">Nombre del juego</label>
+						<input type="text" th:field="*{name}" id="name">
+						<span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+					</div>
+					<div>
+						<label for="adminPassword">Contraseña admin</label>
+						<input type="text" th:field="*{adminPassword}" id="adminPassword">
+						<span style="color: red" th:if="${#fields.hasErrors('adminPassword')}" th:errors="*{adminPassword}"></span>
+					</div>
+					<div>
+						<label for="scheduledDate">Fecha</label>
+						<input type="date" th:field="*{scheduledDate}" id="scheduledDate">
+						<span style="color: red" th:if="${#fields.hasErrors('scheduledDate')}" th:errors="*{scheduledDate}"></span>
+					</div>
+					<div>
+						<label for="scheduledTime">Hora</label>
+						<input type="time" th:field="*{scheduledTime}" id="scheduledTime">
+						<span style="color: red" th:if="${#fields.hasErrors('scheduledTime')}" th:errors="*{scheduledTime}"></span>
+					</div>
+					<div>
+						<label for="nGroups">Numero de grupos</label>
+						<input type="number" th:field="*{nGroups}" id="nGroups">
+						<span style="color: red" th:if="${#fields.hasErrors('nGroups')}" th:errors="*{nGroups}"></span>
+					</div>
+					<div>
+						<label for="nSprints">Numero de sprints</label>
+						<input type="number" th:field="*{nSprints}" id="nSprints">
+						<span style="color: red" th:if="${#fields.hasErrors('nSprints')}" th:errors="*{nSprints}"></span>
+					</div>
+					<div>
+						<label for="userPassword">Contraseña usuario</label>
+						<input type="text" th:field="*{userPassword}" id="userPassword">
+						<span style="color: red" th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}"></span>
+					</div>
+					<div>
+						<label for="guestPassword">Contraseña observador</label>
+						<input type="text" th:field="*{guestPassword}" id="guestPassword">
+						<span style="color: red" th:if="${#fields.hasErrors('guestPassword')}" th:errors="*{guestPassword}"></span>
+					</div>
+					<div>
+						<label for="startTime">Hora de inicio</label>
+						<input type="time" th:field="*{startTime}" id="startTime">
+						<span style="color: red" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></span>
+					</div>
+					<div>
+						<label>Marque para dejar tema nulo</label>
+						<input type="checkbox" onclick="divLogin()">
+						<script>
+							var clic = 1;
+							function divLogin(){ 
+							   if(clic==1){
+							   document.getElementById("caja").disabled = true;
+							   clic = clic + 1;
+							   } else{
+							       document.getElementById("caja").disabled = false;      
+							    clic = 1;
+							   }   
+							}
+						</script>
+					</div>
+					<div>
+						<label for="tsscTopic">Tema</label>
+						<select id="caja" th:field="*{tsscTopic}">
+							<option th:each="topic : ${topics}" th:value="${topic.id}"
+								class="form-control" th:text="${topic.name}"
+								th:selected="${game.tsscTopic=topic}">
+							</option>
+						</select>
+						<span th:if="${#fields.hasErrors('tsscTopic')}" th:errors="*{tsscTopic}"></span>
+					</div>
+				</div>
+				<div>
+					<input type="submit" name="action" value="Actualizar">
+					<input type="submit" name="action" value="Cancelar">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

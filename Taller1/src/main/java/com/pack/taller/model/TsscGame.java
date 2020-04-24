@@ -2,15 +2,11 @@ package com.pack.taller.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -25,38 +21,30 @@ import java.util.List;
 @NamedQuery(name = "TsscGame.findAll", query = "SELECT t FROM TsscGame t")
 public class TsscGame implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	public interface ValidatedGame{};
-	
+
 	@Id
 	@SequenceGenerator(name = "TSSC_GAME_ID_GENERATOR", allocationSize = 1, sequenceName = "TSSC_GAME_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TSSC_GAME_ID_GENERATOR")
 	private long id;
 
 	@Column(name = "ADMIN_PASSWORD")
-	@NotBlank(groups = ValidatedGame.class)
 	private String adminPassword;
 
 	@Column(name = "GUEST_PASSWORD")
-	@NotBlank(groups = ValidatedGame.class)
 	private String guestPassword;
 
 	@Column(name = "N_GROUPS")
-	@Min(value=1, groups=ValidatedGame.class)
 	private Integer nGroups = 4;
 
 	@Column(name = "N_SPRINTS")
-	@Min(value=1, groups=ValidatedGame.class)
 	private Integer nSprints = 4;
 
-	@NotBlank(groups = ValidatedGame.class)
 	private String name;
 
 	@Column(name = "PAUSE_SECONDS")
 	private Long pauseSeconds = 0L;
 
 	@Column(name = "SCHEDULED_DATE")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate scheduledDate;
 
 	@Column(name = "SCHEDULED_TIME")
@@ -69,7 +57,6 @@ public class TsscGame implements Serializable {
 	private BigDecimal typegameId;
 
 	@Column(name = "USER_PASSWORD")
-	@NotBlank(groups = ValidatedGame.class)
 	private String userPassword;
 
 	// bi-directional many-to-one association to TsscState
