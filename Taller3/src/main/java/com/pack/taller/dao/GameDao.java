@@ -1,6 +1,7 @@
 package com.pack.taller.dao;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -60,14 +61,15 @@ public class GameDao implements IGameDao {
 
 	@Override
 	public List<TsscGame> rangeDate(LocalDate fechaInicio, LocalDate fechaFin) {
-		
-		return null;
+		String jpql = "Select a from TsscGame a WHERE a.scheduleDate between fechaInicio and fechaFin'";
+		return em.createQuery(jpql).getResultList();
 	}
 
 	@Override
-	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin, LocalTime horaInicio,
+			LocalTime horaFinal) {
+		String jpql = "Select a from TsscGame a where a.scheduleDate between fechaInicio and fechaFin and a.scheduleTime between horaInicio and horaFinal'";
+		return em.createQuery(jpql).getResultList();
 	}
 	
 }

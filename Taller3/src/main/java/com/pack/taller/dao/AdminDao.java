@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import com.pack.taller.model.TsscAdmin;
+import com.pack.taller.model.TsscGame;
 
 @Repository
 @Scope("singleton")
@@ -41,6 +42,12 @@ public class AdminDao implements IAdminDao {
 	@Override
 	public List<TsscAdmin> findAll() {
 		String jpql = "select a from TsscAdmin a";
+		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscAdmin> findByUser(String user) {
+		String jpql = "select a from TsscAdmin a when a.name == " + user + "'";
 		return em.createQuery(jpql).getResultList();
 	}
 	

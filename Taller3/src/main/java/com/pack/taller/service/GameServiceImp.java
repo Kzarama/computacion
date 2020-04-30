@@ -3,30 +3,30 @@ package com.pack.taller.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pack.taller.dao.GameDao;
+import com.pack.taller.dao.TopicDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscTopic;
-import com.pack.taller.repository.GameRepository;
-import com.pack.taller.repository.TopicRepository;
 
 @Service
 public class GameServiceImp implements GameService {
 	
 	@Autowired
-	private GameRepository repo;
+	private GameDao gameDao;
 	
 	@Autowired
-	private TopicRepository topicRepo;
+	private TopicDao topicDao;
 	
 	@Override
 	public boolean saveGame(TsscGame game) throws Exception {
 		if (game != null && game.getNSprints() > 0 && game.getNGroups() > 0) {
 			TsscTopic topic = game.getTsscTopic();
 			if (topic != null) {
-				topicRepo.findById(topic.getId());
-				repo.save(game);
+				topicDao.findById(topic.getId());
+				gameDao.save(game);
 				return true;
 			} else {
-				repo.save(game);
+				gameDao.save(game);
 				return true;
 			}
 		} else {
@@ -45,13 +45,13 @@ public class GameServiceImp implements GameService {
 		if (game != null && game.getNGroups() > 0 && game.getNSprints() > 0) {
 			TsscTopic topic = game.getTsscTopic();
 			if (topic != null) {
-				topicRepo.findById(topic.getId());
-				repo.deleteById(id);
-				repo.save(game);
+				topicDao.findById(topic.getId());
+				gameDao.delete(gameDao.findById(id));
+				gameDao.save(game);
 				return true;
 			} else {
-				repo.deleteById(id);
-				repo.save(game);
+				gameDao.delete(gameDao.findById(id));
+				gameDao.save(game);
 				return true;
 			}
 		} else {
@@ -61,17 +61,17 @@ public class GameServiceImp implements GameService {
 
 	@Override
 	public Iterable<TsscGame> findAll() {
-		return repo.findAll();
+		return gameDao.findAll();
 	}
 
 	@Override
 	public TsscGame findById(Long id) {
-		return repo.findById(id).get();
+		return gameDao.findById(id);
 	}
 
 	@Override
 	public void deleteGame(Long id) {
-		repo.deleteById(id);
+		gameDao.delete(gameDao.findById(id));
 	}
 	
 }
