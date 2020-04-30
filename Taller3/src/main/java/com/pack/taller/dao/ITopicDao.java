@@ -11,6 +11,7 @@ public interface ITopicDao {
 	public void delete(TsscTopic topic);
 	public TsscTopic findById(Long id);
 	public List<TsscTopic> findAll();
-	public TsscTopic findByDescription(String description);
+	public List<TsscTopic> findByName(String name);
+	public List<TsscTopic> findByDescription(String description);
 	
 }

@@ -1,5 +1,6 @@
 package com.pack.taller.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,13 +41,31 @@ public class GameDao implements IGameDao {
 	}
 
 	@Override
-	public TsscGame findByName(String name) {
-		// TODO Auto-generated method stub
+	public List<TsscGame> findByName(String name) {
+		String jpql = "Select a from TsscGame a where a.name == '" + name + "'";
+		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscGame> findByDescription(String description) {
+		String jpql = "Select a from TsscGame a where a.description == '" + description + "'";
+		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscGame> findByIdTopic(Long id) {
+		String jpql = "Select a.tsscGames from TsscTopic a where a.id == '" + id + "'";
+		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscGame> rangeDate(LocalDate fechaInicio, LocalDate fechaFin) {
+		
 		return null;
 	}
 
 	@Override
-	public TsscGame findByDescription(String description) {
+	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin) {
 		// TODO Auto-generated method stub
 		return null;
 	}

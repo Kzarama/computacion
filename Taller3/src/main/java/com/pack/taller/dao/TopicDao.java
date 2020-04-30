@@ -35,13 +35,20 @@ public class TopicDao implements ITopicDao {
 
 	@Override
 	public List<TsscTopic> findAll() {
-		String jpql = "select a from TsscTopic a";
+		String jpql = "Select a from TsscTopic a";
 		return em.createQuery(jpql).getResultList();
 	}
 
 	@Override
-	public TsscTopic findByDescription(String description) {
-		return em.find(TsscTopic.class, description);
+	public List<TsscTopic> findByName(String name) {
+		String jpql = "Select a from TsscTopic a where a.name == '" + name + "'";
+		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscTopic> findByDescription(String description) {
+		String jpql = "Select a from TsscTopic a where a.description == '" + description + "'";
+		return em.createQuery(jpql).getResultList();
 	}
 
 }
