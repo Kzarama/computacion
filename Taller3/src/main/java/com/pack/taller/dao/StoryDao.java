@@ -3,15 +3,19 @@ package com.pack.taller.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
 import com.pack.taller.model.TsscStory;
 
+@Repository
+@Scope("singleton")
 public class StoryDao implements IStoryDao {
 	
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
-	private EntityManager em = emf.createEntityManager();
+	@PersistenceContext
+	private EntityManager em;
 	
 	@Override
 	public void save(TsscStory story) {

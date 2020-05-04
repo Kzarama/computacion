@@ -9,8 +9,12 @@ import com.pack.taller.model.TsscAdmin;
 @Service
 public class AdminServiceImp implements AdminService {
 	
-	@Autowired
 	private AdminDao adminDao;
+	
+	@Autowired
+	public AdminServiceImp(AdminDao adminDao) {
+		this.adminDao = adminDao;
+	}
 	
 	@Override
 	public void saveAdmin(TsscAdmin admin) {

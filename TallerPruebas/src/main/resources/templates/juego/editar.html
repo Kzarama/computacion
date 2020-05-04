@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container my-5">
+		<h1>Crear nuevo juego</h1>
+		<div class="col-md-6">
+			<form action="#" th:action="@{/juego/editar/{id}(id=${juego.id})}" th:object="${juego}" method="post">
+				<div>
+					<div>
+						<label for="name">Nombre del juego</label>
+						<input type="text" th:field="*{name}" id="name">
+						<span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+					</div>
+					<div>
+						<label for="adminPassword">Contraseña admin</label>
+						<input type="text" th:field="*{adminPassword}" id="adminPassword">
+						<span style="color: red" th:if="${#fields.hasErrors('adminPassword')}" th:errors="*{adminPassword}"></span>
+					</div>
+					<div>
+						<label for="scheduledDate">Fecha</label>
+						<input type="date" th:field="*{scheduledDate}" id="scheduledDate">
+						<span style="color: red" th:if="${#fields.hasErrors('scheduledDate')}" th:errors="*{scheduledDate}"></span>
+					</div>
+					<div>
+						<label for="scheduledTime">Hora</label>
+						<input type="time" th:field="*{scheduledTime}" id="scheduledTime">
+						<span style="color: red" th:if="${#fields.hasErrors('scheduledTime')}" th:errors="*{scheduledTime}"></span>
+					</div>
+					<div>
+						<label for="nGroups">Numero de grupos</label>
+						<input type="number" th:field="*{nGroups}" id="nGroups">
+						<span style="color: red" th:if="${#fields.hasErrors('nGroups')}" th:errors="*{nGroups}"></span>
+					</div>
+					<div>
+						<label for="nSprints">Numero de sprints</label>
+						<input type="number" th:field="*{nSprints}" id="nSprints">
+						<span style="color: red" th:if="${#fields.hasErrors('nSprints')}" th:errors="*{nSprints}"></span>
+					</div>
+					<div>
+						<label for="userPassword">Contraseña usuario</label>
+						<input type="text" th:field="*{userPassword}" id="userPassword">
+						<span style="color: red" th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}"></span>
+					</div>
+					<div>
+						<label for="guestPassword">Contraseña observador</label>
+						<input type="text" th:field="*{guestPassword}" id="guestPassword">
+						<span style="color: red" th:if="${#fields.hasErrors('guestPassword')}" th:errors="*{guestPassword}"></span>
+					</div>
+					<div>
+						<label for="startTime">Hora de inicio</label>
+						<input type="time" th:field="*{startTime}" id="startTime">
+						<span style="color: red" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></span>
+					</div>
+					<div>
+						<label for="tsscTopic">Tema</label>
+						<input type="text" th:field="*{tsscTopic}" id="tsscTopic">
+						<span style="color: red" th:if="${#fields.hasErrors('tsscTopic')}" th:errors="*{tsscTopic}"></span>
+					</div>
+				</div>
+				<div>
+					<input type="submit" name="action" value="Adicionar">
+					<input type="submit" name="action" value="Cancelar">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

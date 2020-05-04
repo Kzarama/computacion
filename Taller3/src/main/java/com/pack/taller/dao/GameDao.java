@@ -5,15 +5,19 @@ import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
 import com.pack.taller.model.TsscGame;
 
+@Repository
+@Scope("singleton")
 public class GameDao implements IGameDao {
 	
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
-	private EntityManager em = emf.createEntityManager();
+	@PersistenceContext
+	private EntityManager em;
 	
 	@Override
 	public void save(TsscGame game) {
@@ -43,19 +47,19 @@ public class GameDao implements IGameDao {
 
 	@Override
 	public List<TsscGame> findByName(String name) {
-		String jpql = "Select a from TsscGame a where a.name == '" + name + "'";
+		String jpql = "Select a from TsscGame a where a.name = '" + name + "'";
 		return em.createQuery(jpql).getResultList();
 	}
 
 	@Override
 	public List<TsscGame> findByDescription(String description) {
-		String jpql = "Select a from TsscGame a where a.description == '" + description + "'";
+		String jpql = "Select a from TsscGame a where a.description = '" + description + "'";
 		return em.createQuery(jpql).getResultList();
 	}
 
 	@Override
 	public List<TsscGame> findByIdTopic(Long id) {
-		String jpql = "Select a.tsscGames from TsscTopic a where a.id == '" + id + "'";
+		String jpql = "Select a.tsscGames from TsscTopic a where a.id = '" + id + "'";
 		return em.createQuery(jpql).getResultList();
 	}
 
@@ -70,6 +74,18 @@ public class GameDao implements IGameDao {
 			LocalTime horaFinal) {
 		String jpql = "Select a from TsscGame a where a.scheduleDate between fechaInicio and fechaFin and a.scheduleTime between horaInicio and horaFinal'";
 		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscGame> rangeDatetTopicGame(LocalDate fecha) {
+		String jpql = "select a from TsscGame a where a.scheduleDate = '" + fecha + "' order by scheduleTime desc";
+		return em.createQuery(jpql).getResultList();
+	}
+
+	@Override
+	public List<TsscGame> rangeDatetStoryNoTimeGame(LocalDate fecha) {
+		String jpql = "select a from TsscGame a where a.scheduleDate = '" + fecha + "' and (11 > (select count(b) from TsscGame.tsscStory b) or a.tsscTimecontrols is null)";
+		return null;
 	}
 	
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="jpaProject">
+		<class>model.TAlumno</class>
+		<class>model.TCarrera</class>
+		<class>model.TCohorte</class>
+		<class>model.TCohortePK</class>
+		<class>model.TCurso</class>
+		<class>model.TCursoPK</class>
+		<class>model.TFacultad</class>
+		<class>model.THorarioCurso</class>
+		<class>model.THorarioCursoPK</class>
+		<class>model.TMateria</class>
+		<class>model.TMatxaprobar</class>
+		<class>model.TMatxaprobarPK</class>
+		<class>model.TMatxprograma</class>
+		<class>model.TMatxprogramaPK</class>
+		<class>model.TProfesore</class>
+		<class>model.TProgAlumno</class>
+		<class>model.TProgAlumnoPK</class>
+		<class>model.TPrograma</class>
+	</persistence-unit>
+</persistence>

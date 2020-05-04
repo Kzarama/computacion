@@ -1,10 +1,9 @@
-	package com.pack.taller.tests;
+package com.pack.taller.tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -17,19 +16,19 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.pack.taller.dao.GameDao;
+import com.pack.taller.dao.StoryDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscStory;
-import com.pack.taller.repository.GameRepository;
-import com.pack.taller.repository.StoryRepository;
 import com.pack.taller.service.StoryServiceImp;
 
 public class TestStory {
 	
 	@Mock
-	private StoryRepository storyRepository;
+	private StoryDao storyRepository;
 	
 	@Mock
-	private GameRepository gameRepository;
+	private GameDao gameRepository;
 	
 	@InjectMocks
 	private StoryServiceImp storyService;
@@ -56,7 +55,6 @@ public class TestStory {
 			gameRepository.save(game);
 			story.setTsscGame(game);
 			try {
-				when(storyService.saveStory(story)).thenReturn(true);
 				assertTrue(storyService.saveStory(story));
 			} catch (Exception e) {
 				fail();
@@ -162,8 +160,6 @@ public class TestStory {
 				e.printStackTrace();
 			}
 			Optional<TsscStory> optional = Optional.of(story);
-			when(storyRepository.save(story)).thenReturn(story);
-			when(storyRepository.findById(story.getId())).thenReturn(optional);
 			assertEquals("desc2", optional.get().getDescription());
 		}
 		/**

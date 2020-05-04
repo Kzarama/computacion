@@ -1,9 +1,11 @@
 package com.pack.taller.tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.when;
+
+import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,19 +15,19 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.pack.taller.dao.GameDao;
+import com.pack.taller.dao.TopicDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscTopic;
-import com.pack.taller.repository.GameRepository;
-import com.pack.taller.repository.TopicRepository;
 import com.pack.taller.service.GameServiceImp;
 
 public class TestGame {
 	
 	@Mock
-	private GameRepository gameRepository;
+	private GameDao gameDao;
 	
 	@Mock
-	private TopicRepository topicRepository;
+	private TopicDao topicDao;
 	
 	@InjectMocks
 	private GameServiceImp gameService;
@@ -48,7 +50,6 @@ public class TestGame {
 			game.setNGroups(1);
 			game.setNSprints(1);
 			try {
-				when(gameService.saveGame(game)).thenReturn(true);
 				assertTrue(gameService.saveGame(game));
 			} catch (Exception e) {
 				fail();
@@ -101,7 +102,7 @@ public class TestGame {
 			TsscTopic topic = new TsscTopic();
 			topic.setDefaultGroups(1);
 			topic.setDefaultSprints(1);
-			topicRepository.save(topic);
+			topicDao.save(topic);
 			game.setTsscTopic(topic);
 			try {
 				assertTrue(gameService.saveGame(game));
@@ -219,7 +220,7 @@ public class TestGame {
 			game.setNSprints(1);
 			game.setId(1);
 			TsscTopic topic = new TsscTopic();
-			topicRepository.save(topic);
+			topicDao.save(topic);
 			game.setTsscTopic(topic);
 			try {
 				gameService.saveGame(game);

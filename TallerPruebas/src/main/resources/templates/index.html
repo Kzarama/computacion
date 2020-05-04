@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Welcome</title>
+</head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<body>
+	<div class="col-md-6">
+		<h1>Simulacion Scrum - Universidad Icesi</h1>
+		<form action="#" th:action="@{/index}" method="post">
+			<h2>Simulación SCRUM!</h2>
+			<p><a href="/juego/"><i class="fas fa-dice"></i> Gestión de Juegos</a></p>	
+			<div sec:authorize="hasAnyRole('S')">			
+				<p><a href="/tema/"><i class="fas fa-drum-steelpan"></i> Gestion de Temas</a></p>
+			</div>
+			<p><a href="/logout"><i class="fas fa-home"></i> Logout</a></p>
+		</form>
+	</div>
+</body>
+</html>

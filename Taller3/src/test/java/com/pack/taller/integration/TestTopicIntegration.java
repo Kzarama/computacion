@@ -7,6 +7,8 @@ import static org.junit.Assert.fail;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ public class TestTopicIntegration {
 	private TopicServiceImp topicService;
 	
 	@Test
+	@Transactional
 	@DisplayName("all is ok")
 	public void testOk() {
 		TsscTopic topic = new TsscTopic();
@@ -36,6 +39,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("topic is null")
 	public void testTopicNull() {
 		TsscTopic topic = null;
@@ -43,6 +47,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("There aren't sprints")
 	public void testSprintsEmpty() {
 		TsscTopic topic = new TsscTopic();
@@ -54,6 +59,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("There aren't groups")
 	public void testGroupsEmpty() {
 		TsscTopic topic = new TsscTopic();
@@ -65,12 +71,12 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("edit test")
 	public void testEdit() {
 		TsscTopic topic = new TsscTopic();
 		topic.setDefaultGroups(1);
 		topic.setDefaultSprints(1);
-		topic.setId(1);
 		try {
 			assertTrue(topicService.saveTopic(topic));
 			topic.setName("topic2");

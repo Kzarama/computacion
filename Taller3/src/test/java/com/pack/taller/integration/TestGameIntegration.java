@@ -7,6 +7,8 @@ import static org.junit.Assert.fail;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,7 @@ public class TestGameIntegration {
 	private TopicServiceImp topicRepository;
 	
 	@Test
+	@Transactional
 	@DisplayName("all is ok")
 	public void testOk() {
 		TsscGame game = new TsscGame();
@@ -41,12 +44,30 @@ public class TestGameIntegration {
 	}
 	
 	@Test
+	@Transactional
+	@DisplayName("all is ok with game")
+	public void testGetName() {
+		TsscGame game = new TsscGame();
+		game.setNGroups(1);
+		game.setNSprints(1);
+		game.setName("1");
+		try {
+			gameService.saveGame(game);
+			assertEquals("1", gameService.findById(game.getId()).getName());
+			System.out.println(gameService.findById(game.getId()).getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	@Transactional
 	@DisplayName("all is ok with game")
 	public void testOkTopic() {
 		TsscGame game = new TsscGame();
 		game.setNGroups(1);
 		game.setNSprints(1);
-		game.setId(1);
 		TsscTopic topic = new TsscTopic();
 		topic.setDefaultGroups(1);
 		topic.setDefaultSprints(1);
@@ -90,16 +111,16 @@ public class TestGameIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("edit test")
 	public void testEdit() {
 		TsscGame game = new TsscGame();
 		game.setNGroups(1);
 		game.setNSprints(1);
-		game.setId(1);
 		try {
 			assertTrue(gameService.saveGame(game));
 			game.setName("game2");
-			gameService.editGame(game, Long.valueOf(1));
+			gameService.editGame(game, game.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

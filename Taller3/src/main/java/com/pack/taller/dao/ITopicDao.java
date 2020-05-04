@@ -1,5 +1,6 @@
 package com.pack.taller.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.pack.taller.model.TsscTopic;
@@ -13,5 +14,6 @@ public interface ITopicDao {
 	public List<TsscTopic> findAll();
 	public List<TsscTopic> findByName(String name);
 	public List<TsscTopic> findByDescription(String description);
+//	public String findTopicGameByDate(LocalDate fecha);
 	
 }

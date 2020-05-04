@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container my-5">
+		<h1>Editar historia</h1>
+		<div class="col-md-6">
+			<form action="#" th:action="@{/historia/editar/{id}(id=${historia.id})}" th:object="${historia}" method="post">
+				<div>
+					<div>
+						<label for="description">Descripcion</label>
+						<input type="text" th:field="*{description}" id="description">
+						<span style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+					</div>
+					<div>
+						<label for="businessValue">Valor del negocio</label>
+						<input type="number" th:field="*{businessValue}" id="businessValue">
+						<span style="color: red" th:if="${#fields.hasErrors('businessValue')}" th:errors="*{businessValue}"></span>
+					</div>
+					<div>
+						<label for="initialSprint">Sprint inicial</label>
+						<input type="number" th:field="*{initialSprint}" id="initialSprint">
+						<span style="color: red" th:if="${#fields.hasErrors('initialSprint')}" th:errors="*{initialSprint}"></span>
+					</div>
+					<div>
+						<label for="priority">Prioridad</label>
+						<input type="number" th:field="*{priority}" id="priority">
+						<span style="color: red" th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}"></span>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="tsscGame">Juego</label>
+						<select th:field="*{tsscGame}">
+							<option th:each="juego : ${juegos}" th:value="${juego.id}"
+								class="form-control" th:text="${juego.name}"
+								th:selected="${historia.tsscGame=juego}">
+							</option>
+						</select>
+						<span th:if="${#fields.hasErrors('tsscGame')}" th:errors="*{tsscGame}"></span>
+					</div>
+				</div>
+				<div>
+					<input type="submit" name="action" value="Actualizar">
+					<input type="submit" name="action" value="Cancelar">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

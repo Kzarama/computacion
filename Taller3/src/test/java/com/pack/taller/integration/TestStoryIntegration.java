@@ -6,14 +6,16 @@ import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.pack.taller.dao.GameDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscStory;
-import com.pack.taller.repository.GameRepository;
 import com.pack.taller.service.StoryServiceImp;
 
 @SpringBootTest
@@ -23,9 +25,10 @@ public class TestStoryIntegration {
 	private StoryServiceImp storyService;
 	
 	@Autowired
-	private GameRepository gameRepository;
+	private GameDao gameRepository;
 	
 	@Test
+	@Transactional
 	@DisplayName("all is ok")
 	public void testOk() {
 		TsscStory story = new TsscStory();
@@ -44,6 +47,7 @@ public class TestStoryIntegration {
 	}
 
 	@Test
+	@Transactional
 	@DisplayName("story is null")
 	public void testStoryNull() {
 		TsscStory story = null;
@@ -51,6 +55,7 @@ public class TestStoryIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("business value zero")
 	public void testBusinessValueZero() {
 		TsscStory story = new TsscStory();
@@ -70,6 +75,7 @@ public class TestStoryIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("initial sprint zero")
 	public void testIntialSprintsZero() {
 		TsscStory story = new TsscStory();
@@ -89,6 +95,7 @@ public class TestStoryIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("priority zero")
 	public void testPriorityZero() {
 		TsscStory story = new TsscStory();
@@ -108,6 +115,7 @@ public class TestStoryIntegration {
 	}
 	
 	@Test
+	@Transactional
 	@DisplayName("edit test")
 	public void testEdit() {
 		TsscStory story = new TsscStory();
@@ -115,7 +123,6 @@ public class TestStoryIntegration {
 		story.setInitialSprint(new BigDecimal(1));
 		story.setPriority(new BigDecimal(1));
 		story.setDescription("desc2");
-		story.setId(1);
 		TsscGame game = new TsscGame();
 		try {
 			gameRepository.save(game);

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
@@ -16,14 +15,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.pack.taller.dao.TopicDao;
 import com.pack.taller.model.TsscTopic;
-import com.pack.taller.repository.TopicRepository;
 import com.pack.taller.service.TopicServiceImp;
 
 public class TestTopic {
 
 	@Mock
-	public TopicRepository topicRepository;
+	public TopicDao topicRepository;
 
 	@InjectMocks
 	public TopicServiceImp topicService;
@@ -46,7 +45,6 @@ public class TestTopic {
 			topic.setDefaultGroups(1);
 			topic.setDefaultSprints(1);
 			try {
-				when(topicService.saveTopic(topic)).thenReturn(true);
 				assertTrue(topicService.saveTopic(topic));
 			} catch (Exception e) {
 				fail();
@@ -111,8 +109,6 @@ public class TestTopic {
 				e.printStackTrace();
 			}
 			Optional<TsscTopic> optional = Optional.of(topic);
-			when(topicRepository.save(topic)).thenReturn(topic);
-			when(topicRepository.findById(topic.getId())).thenReturn(optional);
 			assertEquals(optional.get().getName(), "topic2");
 		}
 		/**

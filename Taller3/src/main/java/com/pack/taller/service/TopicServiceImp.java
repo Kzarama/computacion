@@ -3,19 +3,19 @@ package com.pack.taller.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pack.taller.dao.TopicDao;
 import com.pack.taller.model.TsscTopic;
-import com.pack.taller.repository.TopicRepository;
 
 @Service
 public class TopicServiceImp implements TopicService {
 	
 	@Autowired
-	private TopicRepository repo;
+	private TopicDao topicDao;
 	
 	@Override
 	public boolean saveTopic(TsscTopic topic) throws Exception {
 		if (topic != null && topic.getDefaultGroups() > 0 && topic.getDefaultSprints() > 0) {
-			repo.save(topic);
+			topicDao.save(topic);
 			return true;
 		} else {
 			throw new Exception();
@@ -25,8 +25,8 @@ public class TopicServiceImp implements TopicService {
 	@Override
 	public boolean editTopic(TsscTopic topic, Long id) throws Exception {
 		if (topic != null && topic.getDefaultGroups() > 0 && topic.getDefaultSprints() > 0) {
-			repo.deleteById(id);
-			repo.save(topic);
+			topicDao.delete(findById(id));
+			topicDao.save(topic);
 			return true;
 		} else {
 			 throw new Exception();
@@ -35,17 +35,17 @@ public class TopicServiceImp implements TopicService {
 
 	@Override
 	public Iterable<TsscTopic> findAll() {
-		return repo.findAll();
+		return topicDao.findAll();
 	}
 
 	@Override
 	public TsscTopic findById(Long id) {
-		return repo.findById(id).get();
+		return topicDao.findById(id);
 	}
 
 	@Override
 	public void deleteTopic(Long id) {
-		repo.deleteById(id);;
+		topicDao.delete(findById(id));;
 	}
 	
 }

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: gs-accessing-data-jpa-ini
+Implementation-Version: 0.1.0
+Built-By: kz
+Implementation-Vendor-Id: org.springframework
+Build-Jdk: 1.8.0_241
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/gs-accessing-data-jpa-ini
+Created-By: Maven Integration for Eclipse
+

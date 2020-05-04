@@ -1,4 +1,4 @@
-package com.pack.taller.model;
+	package com.pack.taller.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.data.annotation.Persistent;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,6 +22,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Persistent
 @Table(name = "TSSC_GAME")
 @NamedQuery(name = "TsscGame.findAll", query = "SELECT t FROM TsscGame t")
 public class TsscGame implements Serializable {

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<body>
+	<div class="container my-5 col-md-10">
+		<h2 class="md-5">Gestion de juegos</h2>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Fecha</th>
+					<th>Hora</th>
+					<th>Grupos</th>
+					<th>Spints</th>
+					<th>Inicio real</th>
+					<th>Editar</th>
+					<th>Borrar</th>
+					<th>Historias</th>
+					<th>Tema</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="juego : ${juegos}">
+					<td th:text="${juego.name}"></td>
+					<td th:text="${juego.scheduledDate}"></td>
+					<td th:text="${juego.scheduledTime}"></td>
+					<td th:text="${juego.nGroups}"></td>
+					<td th:text="${juego.nSprints}"></td>
+					<td th:text="${juego.startTime}"></td>
+					<td><a th:href="@{/juego/editar/{id}(id=${juego.id})}"
+						class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
+					<td><a th:href="@{/juego/borrar/{id}(id=${juego.id})}"
+						class="btn btn-primary"><i class="fas fa-trash-alt"></i></a></td>
+					<td><a th:href="@{/juego/historia/{id}(id=${juego.id})}"
+						class="btn btn-primary"><i class="fas fa-sticky-note"></i></a></td>
+					<td><a th:href="@{/juego/tema/{id}(id=${juego.id})}"
+						class="btn btn-primary"><i class="fas fa-drum-steelpan"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="my-5">
+			<a href="/juego/adicionar" class="btn btn-primary">Adicionar</a>
+		</div>
+		<a href="/">Regresar a la pantalla principal</a>
+	</div>
+</body>
+</html>

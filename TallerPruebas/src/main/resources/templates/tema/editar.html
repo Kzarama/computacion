@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<body>
+	<div class="container my-5">
+		<h1>Crear nuevo tema</h1>
+		<div class="col-md-6">
+			<form action="#" th:action="@{/tema/editar/{id}(id=${tema.id})}" th:object="${tema}" method="post">
+				<div>
+					<div>
+						<label for="name">Nombre del tema</label>
+						<input type="text" th:field="*{name}" id="name">
+						<span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+					</div>
+					<div>
+						<label for="description">Descripcion del tema</label>
+						<input type="text" th:field="*{description}" id="description">
+						<span style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+					</div>
+					<div>
+						<label for="defaultGroups">Numero de grupos por defecto</label>
+						<input type="number" th:field="*{defaultGroups}" id="defaultGroups">
+						<span style="color: red" th:if="${#fields.hasErrors('defaultGroups')}" th:errors="*{defaultGroups}"></span>
+					</div>
+					<div>
+						<label for="defaultSprints">Numero de sprints por defecto</label>
+						<input type="number" th:field="*{defaultSprints}" id="defaultSprints">
+						<span style="color: red" th:if="${#fields.hasErrors('defaultSprints')}" th:errors="*{defaultSprints}"></span>
+					</div>
+					<div>
+						<label for="groupPrefix">Prefijo para grupos</label>
+						<input type="text" th:field="*{groupPrefix}" id="groupPrefix">
+						<span style="color: red" th:if="${#fields.hasErrors('groupPrefix')}" th:errors="*{groupPrefix}"></span>
+					</div>
+				</div>
+				<div>
+					<input type="submit" name="action" value="Editar">
+					<input type="submit" name="action" value="Cancelar">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

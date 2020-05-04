@@ -1,17 +1,22 @@
 package com.pack.taller.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
 import com.pack.taller.model.TsscTopic;
 
+@Repository
+@Scope("singleton")
 public class TopicDao implements ITopicDao {
 	
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
-	private EntityManager em = emf.createEntityManager();
+	@PersistenceContext
+	private EntityManager em;
 	
 	@Override
 	public void save(TsscTopic topic) {
@@ -41,13 +46,13 @@ public class TopicDao implements ITopicDao {
 
 	@Override
 	public List<TsscTopic> findByName(String name) {
-		String jpql = "Select a from TsscTopic a where a.name == '" + name + "'";
+		String jpql = "Select a from TsscTopic a where a.name = '" + name + "'";
 		return em.createQuery(jpql).getResultList();
 	}
 
 	@Override
 	public List<TsscTopic> findByDescription(String description) {
-		String jpql = "Select a from TsscTopic a where a.description == '" + description + "'";
+		String jpql = "Select a from TsscTopic a where a.description = '" + description + "'";
 		return em.createQuery(jpql).getResultList();
 	}
 

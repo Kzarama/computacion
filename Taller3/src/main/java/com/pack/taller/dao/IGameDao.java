@@ -18,5 +18,7 @@ public interface IGameDao {
 	public List<TsscGame> findByIdTopic(Long id);
 	public List<TsscGame> rangeDate(LocalDate fechaInicio, LocalDate fechaFin);
 	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin, LocalTime horaInicio, LocalTime horaFinal);
+	public List<TsscGame> rangeDatetTopicGame(LocalDate fecha);
+	public List<TsscGame> rangeDatetStoryNoTimeGame(LocalDate fecha);
 	
 }

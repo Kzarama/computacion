@@ -1,5 +1,9 @@
 package com.pack.taller.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +15,22 @@ import com.pack.taller.model.TsscTopic;
 @Service
 public class GameServiceImp implements GameService {
 	
-	@Autowired
+	
 	private GameDao gameDao;
 	
 	@Autowired
 	private TopicDao topicDao;
+
+	@Autowired
+	public GameServiceImp(GameDao gameDao) {
+		this.gameDao = gameDao;
+	}
 	
 	@Override
 	public boolean saveGame(TsscGame game) throws Exception {
 		if (game != null && game.getNSprints() > 0 && game.getNGroups() > 0) {
 			TsscTopic topic = game.getTsscTopic();
 			if (topic != null) {
-				topicDao.findById(topic.getId());
 				gameDao.save(game);
 				return true;
 			} else {
@@ -46,11 +54,11 @@ public class GameServiceImp implements GameService {
 			TsscTopic topic = game.getTsscTopic();
 			if (topic != null) {
 				topicDao.findById(topic.getId());
-				gameDao.delete(gameDao.findById(id));
+				gameDao.delete(findById(id));
 				gameDao.save(game);
 				return true;
 			} else {
-				gameDao.delete(gameDao.findById(id));
+				gameDao.delete(findById(id));
 				gameDao.save(game);
 				return true;
 			}
@@ -60,18 +68,55 @@ public class GameServiceImp implements GameService {
 	}
 
 	@Override
-	public Iterable<TsscGame> findAll() {
-		return gameDao.findAll();
+	public void deleteGame(Long id) {
+		gameDao.delete(findById(id));
 	}
-
+	
 	@Override
 	public TsscGame findById(Long id) {
 		return gameDao.findById(id);
 	}
+	
+	@Override
+	public Iterable<TsscGame> findAll() {
+		return gameDao.findAll();
+	}
+
+	
+	@Override
+	public List<TsscGame> findByName(String name) {
+		return gameDao.findByName(name);
+	}
 
 	@Override
-	public void deleteGame(Long id) {
-		gameDao.delete(gameDao.findById(id));
+	public List<TsscGame> findByDescription(String description) {
+		return gameDao.findByDescription(description);
+	}
+
+	@Override
+	public List<TsscGame> findByIdTopic(Long id) {
+		return gameDao.findByIdTopic(id);
+	}
+
+	@Override
+	public List<TsscGame> rangeDate(LocalDate fechaInicio, LocalDate fechaFin) {
+		return gameDao.rangeDate(fechaInicio, fechaFin);
+	}
+
+	@Override
+	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin, LocalTime horaInicio,
+			LocalTime horaFinal) {
+		return gameDao.rangeDateHour(fechaInicio, fechaFin, horaInicio, horaFinal);
+	}
+
+	@Override
+	public List<TsscGame> rangeDatetTopicGame(LocalDate fecha) {
+		return gameDao.rangeDatetTopicGame(fecha);
+	}
+
+	@Override
+	public List<TsscGame> rangeDatetStoryNoTimeGame(LocalDate fecha) {
+		return gameDao.rangeDatetStoryNoTimeGame(fecha);
 	}
 	
 }

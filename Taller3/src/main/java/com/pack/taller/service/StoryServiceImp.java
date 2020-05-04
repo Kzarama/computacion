@@ -5,27 +5,27 @@ import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pack.taller.dao.GameDao;
+import com.pack.taller.dao.StoryDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscStory;
-import com.pack.taller.repository.GameRepository;
-import com.pack.taller.repository.StoryRepository;
 
 @Service
 public class StoryServiceImp implements StoryService {
 	
 	@Autowired
-	private StoryRepository repo;
+	private StoryDao storyDao;
 	
 	@Autowired
-	private GameRepository gameRepo;
+	private GameDao gameDao;
 	
 	@Override
 	public boolean saveStory(TsscStory story) throws Exception {
 		if (story != null && story.getBusinessValue().compareTo(new BigDecimal(0)) == 1 && story.getInitialSprint().compareTo(new BigDecimal(0)) == 1 && story.getPriority().compareTo(new BigDecimal(0)) == 1) {
 			TsscGame game = story.getTsscGame();
 			if (game != null) {
-				gameRepo.findById(game.getId());
-				repo.save(story);
+				gameDao.findById(game.getId());
+				storyDao.save(story);
 				return true;
 			} else {
 				throw new Exception();
@@ -38,8 +38,8 @@ public class StoryServiceImp implements StoryService {
 	@Override
 	public boolean editStory(TsscStory story, Long id) throws Exception {
 		if (story != null && story.getBusinessValue().compareTo(new BigDecimal(0)) == 1 && story.getInitialSprint().compareTo(new BigDecimal(0)) == 1 && story.getPriority().compareTo(new BigDecimal(0)) == 1) {
-			repo.deleteById(id);
-			repo.save(story);
+			storyDao.delete(findById(id));
+			storyDao.save(story);
 			return true;
 		} else {
 			throw new Exception();
@@ -48,17 +48,17 @@ public class StoryServiceImp implements StoryService {
 
 	@Override
 	public TsscStory findById(Long id) {
-		return repo.findById(id).get();
+		return storyDao.findById(id);
 	}
 
 	@Override
 	public void deleteStory(Long id) {
-		repo.deleteById(id);
+		storyDao.delete(findById(id));
 	}
 
 	@Override
 	public Iterable<TsscStory> findAll() {
-		return repo.findAll();
+		return storyDao.findAll();
 	}
 	
 }
