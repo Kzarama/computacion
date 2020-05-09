@@ -7,16 +7,19 @@ import static org.junit.Assert.fail;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pack.taller.model.TsscTopic;
 import com.pack.taller.service.TopicServiceImp;
 
+@Rollback
 @SpringBootTest
 public class TestTopicIntegration {
 	
@@ -24,7 +27,7 @@ public class TestTopicIntegration {
 	private TopicServiceImp topicService;
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("all is ok")
 	public void testOk() {
 		TsscTopic topic = new TsscTopic();
@@ -39,7 +42,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("topic is null")
 	public void testTopicNull() {
 		TsscTopic topic = null;
@@ -47,7 +50,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("There aren't sprints")
 	public void testSprintsEmpty() {
 		TsscTopic topic = new TsscTopic();
@@ -59,7 +62,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("There aren't groups")
 	public void testGroupsEmpty() {
 		TsscTopic topic = new TsscTopic();
@@ -71,7 +74,7 @@ public class TestTopicIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("edit test")
 	public void testEdit() {
 		TsscTopic topic = new TsscTopic();
@@ -80,7 +83,7 @@ public class TestTopicIntegration {
 		try {
 			assertTrue(topicService.saveTopic(topic));
 			topic.setName("topic2");
-			topicService.editTopic(topic, Long.valueOf(1));
+			topicService.editTopic(topic, topic.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

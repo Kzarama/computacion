@@ -15,23 +15,32 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 
+import com.pack.taller.Taller1ComputacionApplication;
 import com.pack.taller.dao.GameDao;
 import com.pack.taller.dao.StoryDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscStory;
+import com.pack.taller.service.GameServiceImp;
 import com.pack.taller.service.StoryServiceImp;
 
+@SpringBootTest(classes = Taller1ComputacionApplication.class)
+@Rollback(false)
 public class TestStory {
 	
 	@Mock
-	private StoryDao storyRepository;
+	private StoryDao storyDao;
 	
 	@Mock
-	private GameDao gameRepository;
+	private GameDao gameDao;
 	
 	@InjectMocks
 	private StoryServiceImp storyService;
+	
+	@InjectMocks
+	private GameServiceImp gameService;
 	
 	@BeforeEach
 	public void initMocks() {
@@ -52,9 +61,9 @@ public class TestStory {
 			story.setInitialSprint(new BigDecimal(1));
 			story.setPriority(new BigDecimal(1));
 			TsscGame game = new TsscGame();
-			gameRepository.save(game);
-			story.setTsscGame(game);
 			try {
+				gameService.saveGame(game);
+				story.setTsscGame(game);
 				assertTrue(storyService.saveStory(story));
 			} catch (Exception e) {
 				fail();
@@ -148,11 +157,11 @@ public class TestStory {
 			story.setInitialSprint(new BigDecimal(1));
 			story.setPriority(new BigDecimal(1));
 			TsscGame game = new TsscGame();
-			gameRepository.save(game);
-			story.setTsscGame(game);
-			story.setId(1);
-			story.setDescription("desc1");
 			try {
+				gameService.saveGame(game);
+				story.setTsscGame(game);
+				story.setId(1);
+				story.setDescription("desc1");
 				storyService.saveStory(story);
 				story.setDescription("desc2");
 				storyService.editStory(story, Long.valueOf(1));
@@ -195,9 +204,9 @@ public class TestStory {
 			story.setInitialSprint(new BigDecimal(1));
 			story.setPriority(new BigDecimal(1));
 			TsscGame game = new TsscGame();
-			gameRepository.save(game);
-			story.setTsscGame(game);
 			try {
+				gameService.saveGame(game);
+				story.setTsscGame(game);
 				storyService.saveStory(story);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -216,9 +225,9 @@ public class TestStory {
 			story.setInitialSprint(new BigDecimal(1));
 			story.setPriority(new BigDecimal(1));
 			TsscGame game = new TsscGame();
-			gameRepository.save(game);
-			story.setTsscGame(game);
 			try {
+				gameService.saveGame(game);
+				story.setTsscGame(game);
 				storyService.saveStory(story);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -237,9 +246,9 @@ public class TestStory {
 			story.setInitialSprint(new BigDecimal(1));
 			story.setPriority(new BigDecimal(1));
 			TsscGame game = new TsscGame();
-			gameRepository.save(game);
-			story.setTsscGame(game);
 			try {
+				gameService.saveGame(game);
+				story.setTsscGame(game);
 				storyService.saveStory(story);
 			} catch (Exception e) {
 				e.printStackTrace();

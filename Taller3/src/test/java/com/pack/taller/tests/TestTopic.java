@@ -7,6 +7,8 @@ import static org.junit.Assert.fail;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -14,15 +16,20 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 
+import com.pack.taller.Taller1ComputacionApplication;
 import com.pack.taller.dao.TopicDao;
 import com.pack.taller.model.TsscTopic;
 import com.pack.taller.service.TopicServiceImp;
 
+@SpringBootTest(classes = Taller1ComputacionApplication.class)
+@Rollback(false)
 public class TestTopic {
 
 	@Mock
-	public TopicDao topicRepository;
+	public TopicDao topicDao;
 
 	@InjectMocks
 	public TopicServiceImp topicService;

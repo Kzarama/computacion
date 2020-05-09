@@ -1,11 +1,8 @@
 package com.pack.taller.tests;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-
-import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,13 +11,19 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 
+import com.pack.taller.Taller1ComputacionApplication;
 import com.pack.taller.dao.GameDao;
 import com.pack.taller.dao.TopicDao;
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscTopic;
 import com.pack.taller.service.GameServiceImp;
+import com.pack.taller.service.TopicServiceImp;
 
+@SpringBootTest(classes = Taller1ComputacionApplication.class)
+@Rollback(false)
 public class TestGame {
 	
 	@Mock
@@ -31,6 +34,9 @@ public class TestGame {
 	
 	@InjectMocks
 	private GameServiceImp gameService;
+	
+	@InjectMocks
+	private TopicServiceImp topicService;
 	
 	@BeforeEach
 	public void initMocks() {
@@ -102,9 +108,9 @@ public class TestGame {
 			TsscTopic topic = new TsscTopic();
 			topic.setDefaultGroups(1);
 			topic.setDefaultSprints(1);
-			topicDao.save(topic);
-			game.setTsscTopic(topic);
 			try {
+				topicService.saveTopic(topic);
+				game.setTsscTopic(topic);
 				assertTrue(gameService.saveGame(game));
 			} catch (Exception e) {
 				fail();
@@ -220,19 +226,18 @@ public class TestGame {
 			game.setNSprints(1);
 			game.setId(1);
 			TsscTopic topic = new TsscTopic();
-			topicDao.save(topic);
-			game.setTsscTopic(topic);
+			topic.setDefaultGroups(1);
+			topic.setDefaultSprints(1);
 			try {
+				topicService.saveTopic(topic);
+				game.setTsscTopic(topic);
 				gameService.saveGame(game);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			game.setTsscTopic(null);
-			try {
 				assertTrue(gameService.editGame(game, Long.valueOf(1)));
 			} catch (Exception e) {
+				e.printStackTrace();
 				fail();
 			}
+			game.setTsscTopic(null);
 		}
 	}
 	

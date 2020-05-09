@@ -1,6 +1,8 @@
 package com.pack.taller.dao;
 
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -14,10 +16,10 @@ public interface IGameDao {
 	public TsscGame findById(Long id);
 	public List<TsscGame> findAll();
 	public List<TsscGame> findByName(String name);
-	public List<TsscGame> findByDescription(String description);
+	public List<TsscGame> findByDescriptionTopic(String description);
 	public List<TsscGame> findByIdTopic(Long id);
 	public List<TsscGame> rangeDate(LocalDate fechaInicio, LocalDate fechaFin);
-	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin, LocalTime horaInicio, LocalTime horaFinal);
+	public List<TsscGame> rangeDateHour(LocalDate fechaInicio, LocalDate fechaFin, LocalTime horaInicio, LocalTime horaFin);
 	public List<TsscGame> rangeDatetTopicGame(LocalDate fecha);
 	public List<TsscGame> rangeDatetStoryNoTimeGame(LocalDate fecha);
 	

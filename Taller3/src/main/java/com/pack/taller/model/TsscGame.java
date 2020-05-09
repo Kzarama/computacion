@@ -1,4 +1,4 @@
-	package com.pack.taller.model;
+package com.pack.taller.model;
 
 import java.io.Serializable;
 import javax.persistence.*;

@@ -90,7 +90,7 @@ public class GameServiceImp implements GameService {
 
 	@Override
 	public List<TsscGame> findByDescription(String description) {
-		return gameDao.findByDescription(description);
+		return gameDao.findByDescriptionTopic(description);
 	}
 
 	@Override

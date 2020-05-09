@@ -7,18 +7,20 @@ import static org.junit.Assert.fail;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pack.taller.model.TsscGame;
 import com.pack.taller.model.TsscTopic;
 import com.pack.taller.service.GameServiceImp;
 import com.pack.taller.service.TopicServiceImp;
 
+@Rollback
 @SpringBootTest
 public class TestGameIntegration {
 	
@@ -26,10 +28,10 @@ public class TestGameIntegration {
 	private GameServiceImp gameService;
 	
 	@Autowired
-	private TopicServiceImp topicRepository;
+	private TopicServiceImp topicService;
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("all is ok")
 	public void testOk() {
 		TsscGame game = new TsscGame();
@@ -44,7 +46,7 @@ public class TestGameIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("all is ok with game")
 	public void testGetName() {
 		TsscGame game = new TsscGame();
@@ -62,7 +64,7 @@ public class TestGameIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("all is ok with game")
 	public void testOkTopic() {
 		TsscGame game = new TsscGame();
@@ -72,7 +74,7 @@ public class TestGameIntegration {
 		topic.setDefaultGroups(1);
 		topic.setDefaultSprints(1);
 		try {
-			topicRepository.saveTopic(topic);
+			topicService.saveTopic(topic);
 			game.setTsscTopic(topic);
 			assertTrue(gameService.saveGame(game));
 		} catch (Exception e) {
@@ -82,6 +84,7 @@ public class TestGameIntegration {
 	}
 	
 	@Test
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("game is null")
 	public void testTopicNull() {
 		TsscGame game = null;
@@ -89,6 +92,7 @@ public class TestGameIntegration {
 	}
 	
 	@Test
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("There aren't sprints")
 	public void testSprintsEmpty() {
 		TsscGame game = new TsscGame();
@@ -100,6 +104,7 @@ public class TestGameIntegration {
 	}
 	
 	@Test
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("There aren't groups")
 	public void testGroupsEmpty() {
 		TsscGame game = new TsscGame();
@@ -111,7 +116,7 @@ public class TestGameIntegration {
 	}
 	
 	@Test
-	@Transactional
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@DisplayName("edit test")
 	public void testEdit() {
 		TsscGame game = new TsscGame();
